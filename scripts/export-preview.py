@@ -116,6 +116,10 @@ write('404.html','<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta 
 write('robots.txt','User-agent: *\nDisallow: /\n')
 write('_headers','/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Robots-Tag: noindex, nofollow\n  Cache-Control: public, max-age=0, must-revalidate\n')
 
+# Keep the app and the preserved V1 preview when regenerating publication assets.
+import runpy
+written.update(runpy.run_path(str(repo/'scripts/build-ui.py'))['build_ui']())
+
 class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[]
     def handle_starttag(self,tag,attrs):
