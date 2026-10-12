@@ -6,6 +6,7 @@
     menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
     compass: '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Z"/>',
     grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    refresh: '<path d="M20 8a8 8 0 1 0 0 8M20 3v5h-5"/>',
     book: '<path d="M12 5v15M3 4c4-1 6 0 9 1 3-1 5-2 9-1v15c-4-1-6 0-9 1-3-1-5-2-9-1Z"/>',
     heart: '<path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"/>',
     text: '<path d="M4 5h16M12 5v15M8 20h8"/>',
@@ -27,7 +28,7 @@
   const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.paper}</svg>`;
   function icons(root = document) { $$('[data-icon]', root).forEach(el => { el.innerHTML = icon(el.dataset.icon); }); }
   const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text !== undefined) node.textContent = text; return node; };
-  const state = { groups: [], category: 'promo', query: '', mixed: false, current: null, image: 0, saved: new Set(), feedKey: '', returnHash: '#feed/promo', returnScroll: 0 };
+  const state = { groups: [], category: 'promo', query: '', mixed: false, current: null, image: 0, saved: new Set(), orders: new Map(), feedKey: '', returnHash: '#feed/promo', returnScroll: 0 };
   const storageKey = 'paper-post:saved:v2';
   try { const saved = JSON.parse(localStorage.getItem(storageKey) || '[]'); if (Array.isArray(saved)) state.saved = new Set(saved.filter(v => typeof v === 'string')); } catch { /* Private browsing can disable storage. */ }
   const motion = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
@@ -92,6 +93,8 @@
       if (!state.mixed && !query && g.kind !== state.category) return false;
       return !query || `${g.title} ${g.version} ${g.fullText}`.toLowerCase().includes(query);
     });
+    const order = state.orders.get(key);
+    if (order) { const rank = new Map(order.map((id, index) => [id, index])); groups.sort((a, b) => (rank.get(a.version) ?? Infinity) - (rank.get(b.version) ?? Infinity)); }
     resizeObserver?.disconnect(); feed.replaceChildren();
     groups.forEach(g => {
       const card = el('article', 'note-card'); card.dataset.version = g.version; card.dataset.category = g.kind;
@@ -122,6 +125,60 @@
     $$('.note-content').forEach(node => resizeObserver.observe(node));
     requestAnimationFrame(layoutFeed);
   }
+  const pull = { start: null, distance: 0, dragging: false, busy: false, timer: 0, frame: 0 };
+  const pullView = $('#pullRefresh'), pullLabel = $('span', pullView), feedMain = $('.feed-main');
+  function resetPull() {
+    clearTimeout(pull.timer); cancelAnimationFrame(pull.frame);
+    pull.start = null; pull.distance = 0; pull.dragging = false; pull.busy = false;
+    pullView.dataset.state = 'idle'; pullView.style.setProperty('--pull-distance', '0px');
+    pullView.style.setProperty('--pull-rotation', '0deg'); feed.setAttribute('aria-busy', 'false');
+  }
+  function refreshOrder() {
+    pull.busy = true; pullView.dataset.state = 'refreshing';
+    pullView.style.setProperty('--pull-distance', '52px'); pullLabel.textContent = '正在换个顺序';
+    const before = $$('.note-card', feed).map(card => card.dataset.version), after = [...before];
+    for (let i = after.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [after[i], after[j]] = [after[j], after[i]]; }
+    // A valid refresh always changes the visible order when at least two posts exist.
+    if (after.length > 1 && after.every((id, i) => id === before[i])) after.push(after.shift());
+    state.orders.set(state.feedKey, after); renderFeed(true); feed.setAttribute('aria-busy', 'true');
+    pull.timer = setTimeout(() => {
+      pullView.dataset.state = 'complete';
+      pullLabel.textContent = after.length > 1 ? '已换个顺序' : after.length ? '当前只有这一篇图文' : '没有可刷新的图文';
+      feed.setAttribute('aria-busy', 'false');
+      pull.timer = setTimeout(resetPull, 420);
+    }, 180);
+  }
+  feedMain.addEventListener('touchstart', event => {
+    if (pull.busy || !matchMedia('(max-width: 768px)').matches || $('dialog[open]') || scrollY > 1 || !state.groups.length || event.touches.length !== 1 || event.target.closest('button,input,textarea,select')) return;
+    const touch = event.touches[0]; pull.start = { x: touch.clientX, y: touch.clientY }; pull.distance = 0; pull.dragging = false;
+  }, { passive: true });
+  feedMain.addEventListener('touchmove', event => {
+    if (!pull.start || pull.busy) return;
+    if (event.touches.length !== 1 || $('dialog[open]')) { resetPull(); return; }
+    const touch = event.touches[0], dx = touch.clientX - pull.start.x, dy = touch.clientY - pull.start.y;
+    if (!pull.dragging && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) { resetPull(); return; }
+    if (dy <= 0 || (!pull.dragging && scrollY > 1)) { resetPull(); return; }
+    if (dy < 10 && !pull.dragging) return;
+    if (!event.cancelable) { resetPull(); return; }
+    event.preventDefault(); pull.dragging = true; pull.distance = Math.min(90, dy * .48);
+    cancelAnimationFrame(pull.frame);
+    pull.frame = requestAnimationFrame(() => {
+      pullView.style.setProperty('--pull-distance', `${pull.distance}px`);
+      pullView.style.setProperty('--pull-rotation', `${pull.distance * 3}deg`);
+      const armed = pull.distance >= 60; pullView.dataset.state = armed ? 'armed' : 'pulling';
+      pullLabel.textContent = armed ? '松开刷新' : '下拉换个顺序';
+    });
+  }, { passive: false });
+  feedMain.addEventListener('touchend', event => {
+    if (!pull.start || pull.busy) return;
+    cancelAnimationFrame(pull.frame);
+    if (pull.dragging && event.cancelable) event.preventDefault();
+    const shouldRefresh = pull.dragging && pull.distance >= 60;
+    pull.start = null; pull.dragging = false;
+    if (shouldRefresh) refreshOrder(); else resetPull();
+  }, { passive: false });
+  feedMain.addEventListener('touchcancel', resetPull, { passive: true });
+  window.addEventListener('resize', () => { if (!matchMedia('(max-width: 768px)').matches) resetPull(); });
   function imageState() {
     if (!state.current) return;
     const { pages } = state.current, i = state.image;
@@ -169,6 +226,7 @@
     syncSaved(); imageState(); document.title = `${g.title} · Paper Post`;
   }
   function route() {
+    resetPull();
     const hash = location.hash, match = /^#post\/(A[\d-]+)$/i.exec(hash);
     if (match) {
       const group = state.groups.find(g => g.version === match[1].toUpperCase());

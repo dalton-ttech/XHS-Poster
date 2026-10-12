@@ -36,6 +36,7 @@
     </header>
     <div class="mobile-search-row" hidden><form role="search"><i data-icon="search"></i><input type="search" placeholder="搜索标题、版本或文案" aria-label="搜索图文" autocomplete="off"><button type="button" data-action="close-search">取消</button></form></div>
     <main class="feed-main">
+      <div id="pullRefresh" class="pull-refresh" data-state="idle" role="status" aria-live="polite" aria-atomic="true"><i data-icon="refresh"></i><span>下拉换个顺序</span></div>
       <div class="feed-context"><span id="feedLabel">JEV 论文图文</span><span id="feedCount">5 个版本</span><button type="button" data-action="reset" hidden>查看全部</button></div>
       <section id="feed" class="feed-grid" aria-label="论文图文列表" aria-busy="true"></section>
       <div id="emptyState" class="empty-state" hidden><i data-icon="search"></i><h1>没有找到相关图文</h1><p>试试标题关键词，或直接搜索版本号。</p><button type="button" class="pill-button" data-action="reset">查看全部图文</button></div>
@@ -45,7 +46,7 @@
 
   <nav class="mobile-bottom" aria-label="快捷导航">
     <button type="button" data-action="home" aria-current="page">首页</button>
-    <button type="button" data-action="mixed">混合</button>
+    <button type="button" data-action="mixed">收藏</button>
     <button type="button" class="download-hub" data-action="menu" aria-label="下载图片、文案与PDF"><i data-icon="download"></i></button>
     <button type="button" data-action="captions">文案</button>
     <button type="button" data-action="menu">更多</button>

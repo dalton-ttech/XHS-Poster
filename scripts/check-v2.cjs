@@ -75,7 +75,28 @@ const noOverflow=async(p,label)=>{
  const mobile=await browser.newContext({viewport:{width:393,height:852},deviceScaleFactor:2,isMobile:true,hasTouch:true,permissions:['clipboard-read','clipboard-write'],reducedMotion:'reduce'}),phone=await mobile.newPage();phone.on('pageerror',e=>report.errors.push(e.message));
  await phone.goto(base);await ready(phone);await phone.screenshot({path:path.join(out,'v2-mobile-promotion.png')});await phone.locator('.mobile-menu').click();await phone.screenshot({path:path.join(out,'v2-mobile-menu.png')});await phone.locator('[data-close=menuDialog]').click();
  await phone.locator('.mobile-bottom [data-action=mixed]').click();await ready(phone);assert.deepEqual(await phone.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);await noOverflow(phone,'mixed-feed');await phone.screenshot({path:path.join(out,'v2-mixed-mobile.png')});
- await phone.locator('.category-tabs [data-category=read]').click();await ready(phone);await phone.screenshot({path:path.join(out,'v2-mobile-feed.png')});
+ assert.equal(await phone.locator('.mobile-bottom [data-action=mixed]').textContent(),'收藏');
+ const pullCdp=await mobile.newCDPSession(phone),readOrder=()=>phone.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version));
+ const pullGesture=async(distance,{cancel=false,screenshot=false}={})=>{
+  await pullCdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:180,y:180}]});
+  for(let y=195;y<=180+distance;y+=15)await pullCdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:180,y}]});
+  if(screenshot){await phone.waitForFunction(()=>document.querySelector('#pullRefresh').dataset.state==='armed');await phone.screenshot({path:path.join(out,'v2-pull-to-refresh.png')});}
+  await pullCdp.send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});
+  await phone.waitForFunction(()=>document.querySelector('#pullRefresh').dataset.state==='idle'&&document.querySelector('#pullRefresh').getBoundingClientRect().height<1);
+ };
+ await pullGesture(45);assert.deepEqual(await readOrder(),mixedOrder,'Short pulls keep order');
+ await pullGesture(180,{cancel:true});assert.deepEqual(await readOrder(),mixedOrder,'Cancelled touch keeps order');
+ let previous=await readOrder();
+ for(let attempt=0;attempt<5;attempt++){
+  await pullGesture(180,{screenshot:attempt===0});const shuffled=await readOrder();
+  assert.notDeepEqual(shuffled,previous,'Each full pull changes the order');assert.deepEqual([...shuffled].sort(),[...mixedOrder].sort(),'No duplicates or missing posts');previous=shuffled;
+ }
+ report.repeatPullRefreshes=5;
+ await ready(phone);await phone.screenshot({path:path.join(out,'v2-refreshed-mobile.png')});
+ await phone.locator('.note-card .cover-link').first().click();await phone.waitForSelector('#postDialog[open]');await phone.locator('[data-action=back]').click();await phone.waitForSelector('#postDialog[open]',{state:'detached'});assert.deepEqual(await readOrder(),previous,'Returning from detail keeps shuffled order');
+ await phone.evaluate(()=>window.scrollTo({top:260,behavior:'instant'}));await pullGesture(150);assert.deepEqual(await readOrder(),previous,'Scrolling away from the top does not refresh');await phone.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
+ await phone.locator('.mobile-search').click();await phone.locator('.mobile-search-row input').fill('A3-2');await phone.locator('.mobile-search-row input').blur();await pullGesture(180);assert.deepEqual(await readOrder(),['A3-2'],'Single result stays valid');await phone.locator('[data-action=close-search]').click();assert.deepEqual(await readOrder(),previous,'Search reset preserves shuffled order');
+ await phone.locator('.category-tabs [data-category=read]').click();await ready(phone);const readBefore=await readOrder();await pullGesture(180);assert.notDeepEqual(await readOrder(),readBefore);assert.deepEqual((await readOrder()).sort(),[...readBefore].sort(),'Refresh stays inside the selected category');await phone.screenshot({path:path.join(out,'v2-mobile-feed.png')});
  await phone.locator('.mobile-search').click();await phone.locator('.mobile-search-row input').fill('A4-1-5');assert.equal(await phone.locator('.note-card').count(),1);await phone.locator('[data-action=close-search]').click();await ready(phone);
  await phone.locator('.note-card[data-version="A3-2"] .cover-link').click();await phone.waitForSelector('#postDialog[open]');await phone.locator('.slide img').first().evaluate(im=>im.decode());await phone.screenshot({path:path.join(out,'v2-mobile-detail.png')});
  const cdp=await mobile.newCDPSession(phone);await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:330,y:310}]});for(let x=300;x>=50;x-=25)await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:310}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await phone.waitForFunction(()=>!document.querySelector('#imageCounter').textContent.startsWith('1 /'));report.touchSwipe=true;
