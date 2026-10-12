@@ -14,6 +14,7 @@
 - 初版的 65 张发布图、9 份文案、所有既有 ZIP 和 27 页 PDF 均未修改，两版共用原始文件。
 - 旧版 `/versions/.../` 链接可继续打开对应的 V2 图文；初版详情在 `/v1/versions/.../`。
 - 收藏只保存在当前浏览器，不需要账户。分享链接直接打开对应版本。
+- 「混合浏览」将五版论文推广与四版论文解读穿插展示，手机入口为底部「混合」。每组两篇左右交替，避免同一列全是相同类型。标识文字为「红」。
 
 初版 Git 标签：`v1.0.0`，对应 `58f7d4c033c802879dcd1a7bdaeb90a5ae76b52d`。V2 合并使用单独的合并提交，并标记 `v2.0.0`。
 
@@ -22,11 +23,12 @@
 ```sh
 git switch main
 git pull --ff-only origin main
-git revert -m 1 v2.0.0 --no-edit
+git restore --source=v1.0.0 --staged --worktree -- .
+git commit -m "Restore original V1 preview"
 git push origin main
 ```
 
-此命令适用于 V2 发布后的直接回退；若以后已经有其他更新，先检查它们是否依赖 V2。只想查看初版，无需回退部署，直接打开 `/v1/`。
+此操作会把仓库中已跟踪的文件完整恢复到初版，包括撤销后续 V2 更新，因此只在确认需要整站回退时执行。只想查看初版，无需回退部署，直接打开 `/v1/`。
 
 ## Cloudflare Pages 部署
 

@@ -37,7 +37,15 @@ const noOverflow=async(p,label)=>{
  await page.locator('.desktop-search input').fill('A4-1-5');assert.equal(await page.locator('.note-card').count(),1);
  await page.locator('.desktop-search input').fill('unmatched-query');assert(await page.locator('#emptyState').isVisible());await page.locator('#emptyState [data-action=reset]').click();assert.equal(await page.locator('.note-card').count(),4);
  await page.locator('[data-save="A3-2"]').click();await page.reload();await ready(page);assert.equal(await page.locator('[data-save="A3-2"]').getAttribute('aria-pressed'),'true');
- await page.locator('.side-nav [data-action=favorites]').click();assert.equal(await page.locator('.note-card').count(),1);await page.locator('.note-card .cover-link').click();await page.waitForSelector('#postDialog[open]');await page.locator('[data-action=back]').click();await page.waitForSelector('#postDialog[open]',{state:'detached'});assert.equal(new URL(page.url()).hash,'#saved');
+ await page.locator('.side-nav [data-action=mixed]').click();assert.equal(await page.locator('.note-card').count(),9);
+ const mixedOrder=['A4-1-1','A1-3','A2-3','A4-1-2','A4-1-3','A2-4','A3-2','A4-1-4','A4-1-5'];
+ assert.deepEqual(await page.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);
+ assert.deepEqual(await page.locator('.brand-mark').allTextContents(),['红','红']);
+ await ready(page);await page.screenshot({path:path.join(out,'v2-mixed-desktop.png'),fullPage:true});
+ await page.locator('.note-card .cover-link').first().click();await page.waitForSelector('#postDialog[open]');await page.locator('[data-action=back]').click();await page.waitForSelector('#postDialog[open]',{state:'detached'});assert.equal(new URL(page.url()).hash,'#feed/mixed');
+ await page.reload();await ready(page);assert.deepEqual(await page.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);
+ await page.locator('.desktop-search input').fill('A3-2');assert.equal(await page.locator('.note-card').count(),1);await page.locator('.desktop-search input').fill('');assert.equal(await page.locator('.note-card').count(),9);
+ await page.goto(base+'/#saved');await ready(page);assert.equal(new URL(page.url()).hash,'#feed/mixed');assert.equal(await page.locator('.note-card').count(),9);
  const links=new Set();
  for(const g of data.groups){
   await page.goto(base+g.preview);await page.waitForSelector('#postDialog[open]');assert.equal(await page.locator('#postTitle').innerText(),g.title);assert.equal(await page.locator('.slide').count(),g.pages.length);
@@ -66,6 +74,7 @@ const noOverflow=async(p,label)=>{
  for(const width of [320,375,393,768,820,1024]){await page.setViewportSize({width,height:852});await noOverflow(page,'detail');assert.equal(await page.locator('#imageCounter').textContent(),'3 / 8','Rotation keeps current image');}
  const mobile=await browser.newContext({viewport:{width:393,height:852},deviceScaleFactor:2,isMobile:true,hasTouch:true,permissions:['clipboard-read','clipboard-write'],reducedMotion:'reduce'}),phone=await mobile.newPage();phone.on('pageerror',e=>report.errors.push(e.message));
  await phone.goto(base);await ready(phone);await phone.screenshot({path:path.join(out,'v2-mobile-promotion.png')});await phone.locator('.mobile-menu').click();await phone.screenshot({path:path.join(out,'v2-mobile-menu.png')});await phone.locator('[data-close=menuDialog]').click();
+ await phone.locator('.mobile-bottom [data-action=mixed]').click();await ready(phone);assert.deepEqual(await phone.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);await noOverflow(phone,'mixed-feed');await phone.screenshot({path:path.join(out,'v2-mixed-mobile.png')});
  await phone.locator('.category-tabs [data-category=read]').click();await ready(phone);await phone.screenshot({path:path.join(out,'v2-mobile-feed.png')});
  await phone.locator('.mobile-search').click();await phone.locator('.mobile-search-row input').fill('A4-1-5');assert.equal(await phone.locator('.note-card').count(),1);await phone.locator('[data-action=close-search]').click();await ready(phone);
  await phone.locator('.note-card[data-version="A3-2"] .cover-link').click();await phone.waitForSelector('#postDialog[open]');await phone.locator('.slide img').first().evaluate(im=>im.decode());await phone.screenshot({path:path.join(out,'v2-mobile-detail.png')});

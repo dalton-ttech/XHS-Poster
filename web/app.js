@@ -5,6 +5,7 @@
   const paths = {
     menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
     compass: '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Z"/>',
+    grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
     book: '<path d="M12 5v15M3 4c4-1 6 0 9 1 3-1 5-2 9-1v15c-4-1-6 0-9 1-3-1-5-2-9-1Z"/>',
     heart: '<path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"/>',
     text: '<path d="M4 5h16M12 5v15M8 20h8"/>',
@@ -26,7 +27,7 @@
   const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.paper}</svg>`;
   function icons(root = document) { $$('[data-icon]', root).forEach(el => { el.innerHTML = icon(el.dataset.icon); }); }
   const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text !== undefined) node.textContent = text; return node; };
-  const state = { groups: [], category: 'promo', query: '', savedOnly: false, current: null, image: 0, saved: new Set(), feedKey: '', returnHash: '#feed/promo', returnScroll: 0 };
+  const state = { groups: [], category: 'promo', query: '', mixed: false, current: null, image: 0, saved: new Set(), feedKey: '', returnHash: '#feed/promo', returnScroll: 0 };
   const storageKey = 'paper-post:saved:v2';
   try { const saved = JSON.parse(localStorage.getItem(storageKey) || '[]'); if (Array.isArray(saved)) state.saved = new Set(saved.filter(v => typeof v === 'string')); } catch { /* Private browsing can disable storage. */ }
   const motion = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
@@ -69,17 +70,26 @@
     let persisted = true;
     try { localStorage.setItem(storageKey, JSON.stringify([...state.saved])); } catch { persisted = false; }
     syncSaved();
-    if (state.savedOnly && !post.open) renderFeed(true);
     toast(removing ? '已取消收藏' : persisted ? '已收藏，保存在这台设备' : '已收藏，本次浏览有效');
+  }
+  function mixedGroups() {
+    const promo = state.groups.filter(g => g.kind === 'promo');
+    const read = state.groups.filter(g => g.kind === 'read');
+    const groups = [];
+    for (let i = 0; i < Math.max(promo.length, read.length); i++) {
+      // Swap each pair so mobile columns both contain promotion and analysis.
+      const pair = i % 2 ? [read[i], promo[i]] : [promo[i], read[i]];
+      groups.push(...pair.filter(Boolean));
+    }
+    return groups;
   }
   function renderFeed(force = false) {
     const query = state.query.trim().toLowerCase();
-    const key = `${state.category}/${state.savedOnly}/${query}/${[...state.saved].join(',')}`;
+    const key = `${state.category}/${state.mixed}/${query}`;
     if (!force && key === state.feedKey) return;
     state.feedKey = key;
-    const groups = state.groups.filter(g => {
-      if (state.savedOnly && !state.saved.has(g.version)) return false;
-      if (!state.savedOnly && !query && g.kind !== state.category) return false;
+    const groups = (state.mixed ? mixedGroups() : state.groups).filter(g => {
+      if (!state.mixed && !query && g.kind !== state.category) return false;
       return !query || `${g.title} ${g.version} ${g.fullText}`.toLowerCase().includes(query);
     });
     resizeObserver?.disconnect(); feed.replaceChildren();
@@ -95,17 +105,17 @@
       meta.append(el('span', 'mini-avatar', 'J'), el('span', 'version-label', g.version), button);
       content.append(cover, heading, meta); card.append(content); feed.append(card);
     });
-    $$('[data-category]').forEach(button => button.setAttribute('aria-pressed', !state.savedOnly && button.dataset.category === state.category));
-    $$('[data-action="favorites"]').forEach(button => { button.classList.toggle('active', state.savedOnly); if (state.savedOnly) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current'); });
-    $('[data-action="home"]').toggleAttribute('aria-current', !state.savedOnly);
-    if (!state.savedOnly) $('[data-action="home"]').setAttribute('aria-current', 'page');
-    $('#feedLabel').textContent = query ? `搜索“${state.query.trim()}”` : state.savedOnly ? '我的收藏 · 当前设备' : 'JEV 论文图文';
+    $$('[data-category]').forEach(button => button.setAttribute('aria-pressed', !state.mixed && button.dataset.category === state.category));
+    $$('[data-action="mixed"]').forEach(button => { button.classList.toggle('active', state.mixed); if (state.mixed) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current'); });
+    $('[data-action="home"]').toggleAttribute('aria-current', !state.mixed);
+    if (!state.mixed) $('[data-action="home"]').setAttribute('aria-current', 'page');
+    $('#feedLabel').textContent = query ? `搜索“${state.query.trim()}”` : state.mixed ? '混合浏览 · 推广与解读' : 'JEV 论文图文';
     $('#feedCount').textContent = `${groups.length} 个版本`;
-    $('.feed-context').classList.toggle('search-context', !!query || state.savedOnly);
-    $('.feed-context [data-action="reset"]').hidden = !query && !state.savedOnly;
+    $('.feed-context').classList.toggle('search-context', !!query || state.mixed);
+    $('.feed-context [data-action="reset"]').hidden = !query;
     const empty = $('#emptyState'); empty.hidden = !!groups.length;
-    $('h1', empty).textContent = state.savedOnly && !query ? '还没有收藏图文' : '没有找到相关图文';
-    $('p', empty).textContent = state.savedOnly && !query ? '点一下图文旁的爱心，喜欢的版本就留在这里。' : '试试标题关键词，或直接搜索版本号。';
+    $('h1', empty).textContent = '没有找到相关图文';
+    $('p', empty).textContent = '试试标题关键词，或直接搜索版本号。';
     $('#feedEnd').hidden = !groups.length;
     feed.setAttribute('aria-busy', 'false'); syncSaved();
     resizeObserver = new ResizeObserver(() => requestAnimationFrame(layoutFeed));
@@ -167,7 +177,8 @@
     }
     const wasOpen = post.open;
     if (wasOpen) { closeDialog('postMenuDialog'); closeDialog('postDialog'); }
-    state.savedOnly = location.hash === '#saved';
+    if (location.hash === '#saved') history.replaceState(null, '', '#feed/mixed');
+    state.mixed = location.hash === '#feed/mixed';
     if (location.hash === '#feed/read') state.category = 'read';
     else if (location.hash === '#feed/promo') state.category = 'promo';
     renderFeed(); document.title = 'Paper Post · 论文图文 V2';
@@ -207,7 +218,7 @@
     $('#captionText').value = state.groups.find(g => g.version === $('#captionSelect').value).fullText;
     showDialog('captionDialog');
   }
-  function reset() { setQuery(''); state.savedOnly = false; navigate(`#feed/${state.category}`); }
+  function reset() { setQuery(''); navigate(state.mixed ? '#feed/mixed' : `#feed/${state.category}`); }
   document.addEventListener('click', event => {
     const button = event.target.closest('button,a'); if (!button) return;
     if (button.dataset.close) { closeDialog(button.dataset.close); return; }
@@ -220,8 +231,8 @@
     if (href?.startsWith('#post/') || href?.startsWith('#feed/')) { event.preventDefault(); if ($('#menuDialog').open) closeDialog('menuDialog'); navigate(href); return; }
     switch (button.dataset.action) {
       case 'menu': showDialog('menuDialog'); break;
-      case 'home': reset(); window.scrollTo({ top: 0, behavior: motion() }); break;
-      case 'favorites': setQuery(''); navigate('#saved'); break;
+      case 'home': state.mixed = false; reset(); window.scrollTo({ top: 0, behavior: motion() }); break;
+      case 'mixed': setQuery(''); navigate('#feed/mixed'); window.scrollTo({ top: 0, behavior: 'instant' }); break;
       case 'captions': captions(); break;
       case 'reset': reset(); break;
       case 'search': $('.mobile-search-row').hidden = false; button.setAttribute('aria-expanded', 'true'); $('.mobile-search-row input').focus(); break;
@@ -249,7 +260,7 @@
     dialog.addEventListener('click', event => { if (event.target !== dialog) return; const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) { if (dialog === post) back(); else closeDialog(dialog.id); } });
   });
   window.addEventListener('popstate', route); window.addEventListener('hashchange', route);
-  window.addEventListener('storage', event => { if (event.key === storageKey) { try { state.saved = new Set(JSON.parse(event.newValue || '[]')); syncSaved(); if (state.savedOnly) renderFeed(true); } catch { /* Ignore invalid storage. */ } } });
+  window.addEventListener('storage', event => { if (event.key === storageKey) { try { state.saved = new Set(JSON.parse(event.newValue || '[]')); syncSaved(); } catch { /* Ignore invalid storage. */ } } });
   icons();
   async function init() {
     try {
