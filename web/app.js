@@ -112,7 +112,7 @@
     $$('[data-action="mixed"]').forEach(button => { button.classList.toggle('active', state.mixed); if (state.mixed) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current'); });
     $('[data-action="home"]').toggleAttribute('aria-current', !state.mixed);
     if (!state.mixed) $('[data-action="home"]').setAttribute('aria-current', 'page');
-    $('#feedLabel').textContent = query ? `搜索“${state.query.trim()}”` : state.mixed ? '混合浏览 · 推广与解读' : 'JEV 论文图文';
+    $('#feedLabel').textContent = query ? `搜索“${state.query.trim()}”` : state.mixed ? '混合浏览 · 推广与解读' : 'Jev 论文图文';
     $('#feedCount').textContent = `${groups.length} 个版本`;
     $('.feed-context').classList.toggle('search-context', !!query || state.mixed);
     $('.feed-context [data-action="reset"]').hidden = !query;

@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#ffffff">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="JEV论文推广与解读图文：沉浸阅读、版本比较、文案复制和原图下载。">
+  <meta name="description" content="Jev论文推广与解读图文：沉浸阅读、版本比较、文案复制和原图下载。">
   <title>Paper Post · 论文图文</title>
   <link rel="icon" href="/app/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/app/style.css">
-  <script src="/app/app.js" defer></script>
+  <link rel="stylesheet" href="/app/style.css?v=a4-integrated">
+  <script src="/app/app.js?v=a4-integrated" defer></script>
 </head>
 <body>
   <a href="#feed" class="skip-link">跳到图文</a>
@@ -21,7 +21,7 @@
       <button type="button" data-action="mixed"><i data-icon="grid"></i><span>混合浏览</span></button>
       <button type="button" data-action="captions"><i data-icon="text"></i><span>发布文案</span></button>
     </nav>
-    <div class="sidebar-foot"><button type="button" data-action="menu"><i data-icon="menu"></i>下载与资料</button><a href="/v1/" class="previous-preview">切回初版预览 ↗</a><span>V2 · JEV 论文图文</span></div>
+    <div class="sidebar-foot"><a href="/covers.html" class="previous-preview">A4 十版首图对比 ↗</a><button type="button" data-action="menu"><i data-icon="menu"></i>下载与资料</button><a href="/previous/" class="previous-preview">查看修订前图文 ↗</a><span>V2 · KOC 第三方稿</span></div>
   </aside>
 
   <div class="app-shell" id="appShell">
@@ -37,7 +37,7 @@
     <div class="mobile-search-row" hidden><form role="search"><i data-icon="search"></i><input type="search" placeholder="搜索标题、版本或文案" aria-label="搜索图文" autocomplete="off"><button type="button" data-action="close-search">取消</button></form></div>
     <main class="feed-main">
       <div id="pullRefresh" class="pull-refresh" data-state="idle" role="status" aria-live="polite" aria-atomic="true"><i data-icon="refresh"></i><span>下拉换个顺序</span></div>
-      <div class="feed-context"><span id="feedLabel">JEV 论文图文</span><span id="feedCount">5 个版本</span><button type="button" data-action="reset" hidden>查看全部</button></div>
+      <div class="feed-context"><span id="feedLabel">Jev 论文图文</span><span id="feedCount">5 个版本</span><button type="button" data-action="reset" hidden>查看全部</button></div>
       <section id="feed" class="feed-grid" aria-label="论文图文列表" aria-busy="true"></section>
       <div id="emptyState" class="empty-state" hidden><i data-icon="search"></i><h1>没有找到相关图文</h1><p>试试标题关键词，或直接搜索版本号。</p><button type="button" class="pill-button" data-action="reset">查看全部图文</button></div>
       <p class="feed-end" id="feedEnd">已经看完啦</p>
@@ -57,20 +57,20 @@
     <h2 id="menuTitle">下载与资料</h2>
     <p class="drawer-intro">选好一版，图文一起发布。</p>
     <div class="menu-group">
-      <a href="/downloads/jev-all-versions.pdf" target="_blank" rel="noopener"><i data-icon="book"></i><span>查看汇总 PDF<small>27 页 · 全部版本</small></span><i data-icon="arrow-up-right"></i></a>
+      <a href="/downloads/jev-all-versions.pdf" target="_blank" rel="noopener"><i data-icon="book"></i><span>查看汇总 PDF<small>58 页 · 全部版本</small></span><i data-icon="arrow-up-right"></i></a>
       <a href="/downloads/jev-all-versions.pdf" download><i data-icon="file"></i><span>下载汇总 PDF</span><i data-icon="chevron-right"></i></a>
     </div>
     <div class="menu-group">
-      <a href="/downloads/jev-all-versions.zip" download><i data-icon="download"></i><span>下载全部图文<small>9 个版本 · 65 张原图与文案</small></span><i data-icon="chevron-right"></i></a>
-      <a href="/downloads/a4-1-all.zip" download><i data-icon="image"></i><span>下载论文推广稿<small>A4-1 系列 · 35 张图片</small></span><i data-icon="chevron-right"></i></a>
+      <a href="/downloads/"><i data-icon="download"></i><span>下载全部图文<small>19 个版本 · 154 张原图与文案</small></span><i data-icon="chevron-right"></i></a>
+      <a href="/downloads/a4-1-all.zip" download><i data-icon="image"></i><span>下载 A4 十版图文<small>A4-1 至 A4-10 · 80 张图片</small></span><i data-icon="chevron-right"></i></a>
       <a href="/downloads/jev-all-captions.txt" download><i data-icon="text"></i><span>下载全部发布文案</span><i data-icon="chevron-right"></i></a>
     </div>
     <div class="menu-group">
       <a href="https://arxiv.org/abs/2609.27678" target="_blank" rel="noopener"><i data-icon="paper"></i><span>阅读原论文<small>arXiv 预印本</small></span><i data-icon="arrow-up-right"></i></a>
       <a href="https://github.com/ZF-Utokyo/Jev-Benchmark" target="_blank" rel="noopener"><i data-icon="code"></i><span>实验代码</span><i data-icon="arrow-up-right"></i></a>
     </div>
-    <div class="menu-group"><a href="/v1/"><i data-icon="book"></i><span>切回初版预览<small>V1 · 多图总览与完整文案</small></span><i data-icon="chevron-right"></i></a></div>
-    <p class="drawer-foot">V2 · Same Scores, Different Decisions<br>Fan Zhang 等 · 2026</p>
+    <div class="menu-group"><a href="/previous/"><i data-icon="book"></i><span>查看修订前图文<small>此前线上九版图文完整保留</small></span><i data-icon="chevron-right"></i></a></div>
+    <div class="menu-group"><a href="/covers.html"><i data-icon="image"></i><span>A4 十版首图对比</span><i data-icon="chevron-right"></i></a><a href="/v1/"><i data-icon="book"></i><span>初版多图预览</span><i data-icon="chevron-right"></i></a></div><p class="drawer-foot">V2 · Same Scores, Different Decisions<br>Fan Zhang 等 · 2026</p>
   </dialog>
 
   <dialog id="postDialog" class="post-dialog" aria-labelledby="postTitle">
@@ -89,7 +89,7 @@
         <button type="button" class="image-next" data-action="next-image" aria-label="下一张图片"><i data-icon="chevron-right"></i></button>
         <div class="image-dots" id="imageDots" aria-label="切换图片"></div>
       </section>
-      <section class="post-copy"><h1 id="postTitle"></h1><div id="postBody" class="post-body"></div><p class="post-date">2026-10-12 · 论文图文</p><div class="post-source"><i data-icon="paper"></i><a href="https://arxiv.org/abs/2609.27678" target="_blank" rel="noopener">阅读原论文</a><span>arXiv 预印本</span></div><p class="post-copy-end">喜欢这一版，可以收藏后再回来。</p></section>
+      <section class="post-copy"><h1 id="postTitle"></h1><div id="postBody" class="post-body"></div><div class="post-source"><i data-icon="paper"></i><a href="https://arxiv.org/abs/2609.27678" target="_blank" rel="noopener">阅读原论文</a><span>arXiv 预印本</span></div><p class="post-copy-end">喜欢这一版，可以收藏后再回来。</p></section>
       <footer class="post-actions">
         <button type="button" class="copy-main" data-copy="full"><i data-icon="copy"></i>复制文案</button>
         <button type="button" class="action-with-label" data-action="save-post" aria-pressed="false"><i data-icon="heart"></i><span>收藏</span></button>

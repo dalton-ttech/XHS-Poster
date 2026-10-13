@@ -16,12 +16,16 @@ const noOverflow=async(p,label)=>{
 (async()=>{
  fs.mkdirSync(out,{recursive:true});const data=JSON.parse(fs.readFileSync(path.join(pub,'site-data.json'),'utf8'));
  for(const g of data.groups){
-  const caption=fs.readFileSync(path.join(pub,g.caption),'utf8').replace(/\r\n/g,'\n').trim();assert.equal(g.fullText,caption);assert.equal(g.title,caption.split('\n')[0]);assert.equal(g.body,caption.split('\n').slice(1).join('\n').trimStart());
+  const caption=fs.readFileSync(path.join(pub,g.caption),'utf8').replace(/\r\n/g,'\n');assert.equal(g.fullText,caption);assert.equal(g.title,caption.split('\n')[0]);assert.equal(g.body,caption.split('\n').slice(1).join('\n').trimStart());
   for(const im of g.pages){assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(pub,im.url))).digest('hex'),im.sha256);report.preservedImages++;}
  }
  const immutable=execFileSync('git',['ls-tree','-r','--name-only',V1,'public/downloads','public/versions'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>!f.endsWith('.html'));
- for(const file of immutable){assert.equal(execFileSync('git',['hash-object',file],{cwd:root,encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',`${V1}:${file}`],{cwd:root,encoding:'utf8'}).trim(),file);if(file.startsWith('public/downloads/'))report.preservedDownloads++;}
- console.log('Original assets verified. Starting browser checks.');
+ for(const file of immutable){assert.equal(execFileSync('git',['hash-object',file.replace('public/','public/previous/')],{cwd:root,encoding:'utf8'}).trim(),execFileSync('git',['rev-parse',`${V1}:${file}`],{cwd:root,encoding:'utf8'}).trim(),file);if(file.startsWith('public/downloads/'))report.preservedDownloads++;}
+ assert.equal(data.groups.length,19);assert.equal(report.preservedImages,154);
+ assert(!data.groups.some(g=>['A4-11','A4-12','A4-13'].includes(g.version)));
+ const files=fs.readdirSync(pub,{recursive:true,withFileTypes:true}).filter(f=>f.isFile()).map(f=>path.join(f.parentPath||f.path,f.name));
+ for(const f of files){assert(fs.statSync(f).size<=25*1024*1024,'Pages asset limit '+f);if(f.endsWith('.html'))assert(!fs.readFileSync(f,'utf8').includes('127.0.0.1'),'Local-only URL '+f);}
+ console.log('Archived originals and publication files verified. Starting browser checks.');
  const types={'.html':'text/html; charset=utf-8','.json':'application/json','.txt':'text/plain; charset=utf-8','.png':'image/png','.pdf':'application/pdf','.zip':'application/zip','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml'};
  server=http.createServer((req,res)=>{
   let f=path.resolve(pub,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(f!==pub&&!f.startsWith(pub+path.sep)){res.writeHead(403);res.end();return;}
@@ -32,21 +36,30 @@ const noOverflow=async(p,label)=>{
  browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});
  const context=await browser.newContext({viewport:{width:1440,height:1000},permissions:['clipboard-read','clipboard-write'],reducedMotion:'reduce'}),page=await context.newPage();
  page.on('pageerror',e=>report.errors.push(e.message));page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)report.errors.push(`${r.status()} ${r.url()}`);});
- await page.goto(base);await ready(page);assert.equal(await page.locator('.note-card').count(),5);
+ await page.goto(base);await ready(page);assert.equal(await page.locator('.note-card').count(),15);
  await page.locator('.category-tabs [data-category=read]').click();assert.equal(await page.locator('.note-card').count(),4);
  await page.locator('.desktop-search input').fill('A4-1-5');assert.equal(await page.locator('.note-card').count(),1);
  await page.locator('.desktop-search input').fill('unmatched-query');assert(await page.locator('#emptyState').isVisible());await page.locator('#emptyState [data-action=reset]').click();assert.equal(await page.locator('.note-card').count(),4);
  await page.locator('[data-save="A3-2"]').click();await page.reload();await ready(page);assert.equal(await page.locator('[data-save="A3-2"]').getAttribute('aria-pressed'),'true');
- await page.locator('.side-nav [data-action=mixed]').click();assert.equal(await page.locator('.note-card').count(),9);
- const mixedOrder=['A4-1-1','A1-3','A2-3','A4-1-2','A4-1-3','A2-4','A3-2','A4-1-4','A4-1-5'];
+ await page.locator('.side-nav [data-action=mixed]').click();assert.equal(await page.locator('.note-card').count(),19);
+ const mixedOrder=['A4-1','A1-3','A2-3','A4-2','A4-3','A2-4','A3-2','A4-4','A4-5','A4-6','A4-7','A4-8','A4-9','A4-10','A4-1-1','A4-1-2','A4-1-3','A4-1-4','A4-1-5'];
  assert.deepEqual(await page.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);
  assert.deepEqual(await page.locator('.brand-mark').allTextContents(),['红','红']);
  await ready(page);await page.screenshot({path:path.join(out,'v2-mixed-desktop.png'),fullPage:true});
  await page.locator('.note-card .cover-link').first().click();await page.waitForSelector('#postDialog[open]');await page.locator('[data-action=back]').click();await page.waitForSelector('#postDialog[open]',{state:'detached'});assert.equal(new URL(page.url()).hash,'#feed/mixed');
  await page.reload();await ready(page);assert.deepEqual(await page.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);
- await page.locator('.desktop-search input').fill('A3-2');assert.equal(await page.locator('.note-card').count(),1);await page.locator('.desktop-search input').fill('');assert.equal(await page.locator('.note-card').count(),9);
- await page.goto(base+'/#saved');await ready(page);assert.equal(new URL(page.url()).hash,'#feed/mixed');assert.equal(await page.locator('.note-card').count(),9);
+ await page.locator('.desktop-search input').fill('A3-2');assert.equal(await page.locator('.note-card').count(),1);await page.locator('.desktop-search input').fill('');assert.equal(await page.locator('.note-card').count(),19);
+ await page.goto(base+'/#saved');await ready(page);assert.equal(new URL(page.url()).hash,'#feed/mixed');assert.equal(await page.locator('.note-card').count(),19);
  const links=new Set();
+ await page.goto(base+'/covers.html');assert.equal(await page.locator('main figure').count(),10);
+ await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.screenshot({path:path.join(out,'a4-covers-mobile.png'),fullPage:true});await page.setViewportSize({width:1440,height:1000});
+ for(const g of ['A4-4','A4-6','A4-8']){await page.goto(base+'/#post/'+g);await page.waitForSelector('#postDialog[open]');await page.locator('.slide img').first().evaluate(im=>im.decode());await page.screenshot({path:path.join(out,g+'-integrated.png')});}
+ await page.goto(base+'/downloads/');assert.equal(await page.locator('a[download]').count(),4);
+ for(const href of await page.locator('a[href]').evaluateAll(as=>as.map(a=>a.href)))if(href.startsWith(base))links.add(href.split('#')[0]);
+ await page.goto(base+'/previous/');await ready(page);assert.equal(await page.locator('.note-card').count(),5);
+ await page.locator('.note-card .cover-link').first().click();await page.waitForSelector('#postDialog[open]');assert.equal(await page.locator('.slide').count(),7);
+ report.archivedPreview=true;
  for(const g of data.groups){
   await page.goto(base+g.preview);await page.waitForSelector('#postDialog[open]');assert.equal(await page.locator('#postTitle').innerText(),g.title);assert.equal(await page.locator('.slide').count(),g.pages.length);
   await page.locator('.post-actions [data-copy=full]').click();assert.equal(await clipboard(page),g.fullText);report.clipboardChecks++;
@@ -70,8 +83,8 @@ const noOverflow=async(p,label)=>{
  await page.goto(base+'/#feed/read');await ready(page);
  for(const width of [320,375,393,768,820,1024,1440,1728]){await page.setViewportSize({width,height:1000});await noOverflow(page,'feed');}
  await page.setViewportSize({width:1440,height:1000});await ready(page);await page.screenshot({path:path.join(out,'v2-desktop-feed.png'),fullPage:true});
- await page.locator('.note-card[data-version="A3-2"] .cover-link').click();await page.waitForSelector('#postDialog[open]');await page.locator('#imageDots button').nth(2).click();await page.waitForFunction(()=>document.querySelector('#imageCounter').textContent==='3 / 8');await page.locator('.slide img').nth(2).evaluate(im=>im.decode());await page.screenshot({path:path.join(out,'v2-desktop-detail.png')});
- for(const width of [320,375,393,768,820,1024]){await page.setViewportSize({width,height:852});await noOverflow(page,'detail');assert.equal(await page.locator('#imageCounter').textContent(),'3 / 8','Rotation keeps current image');}
+ await page.locator('.note-card[data-version="A3-2"] .cover-link').click();await page.waitForSelector('#postDialog[open]');await page.locator('#imageDots button').nth(2).click();await page.waitForFunction(()=>document.querySelector('#imageCounter').textContent==='3 / 10');await page.locator('.slide img').nth(2).evaluate(im=>im.decode());await page.screenshot({path:path.join(out,'v2-desktop-detail.png')});
+ for(const width of [320,375,393,768,820,1024]){await page.setViewportSize({width,height:852});await noOverflow(page,'detail');assert.equal(await page.locator('#imageCounter').textContent(),'3 / 10','Rotation keeps current image');}
  const mobile=await browser.newContext({viewport:{width:393,height:852},deviceScaleFactor:2,isMobile:true,hasTouch:true,permissions:['clipboard-read','clipboard-write'],reducedMotion:'reduce'}),phone=await mobile.newPage();phone.on('pageerror',e=>report.errors.push(e.message));
  await phone.goto(base);await ready(phone);await phone.screenshot({path:path.join(out,'v2-mobile-promotion.png')});await phone.locator('.mobile-menu').click();await phone.screenshot({path:path.join(out,'v2-mobile-menu.png')});await phone.locator('[data-close=menuDialog]').click();
  await phone.locator('.mobile-bottom [data-action=mixed]').click();await ready(phone);assert.deepEqual(await phone.locator('.note-card').evaluateAll(cards=>cards.map(c=>c.dataset.version)),mixedOrder);await noOverflow(phone,'mixed-feed');await phone.screenshot({path:path.join(out,'v2-mixed-mobile.png')});

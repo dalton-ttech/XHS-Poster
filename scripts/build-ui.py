@@ -17,10 +17,13 @@ def build_ui():
         dest.write_bytes(content if isinstance(content, bytes) else content.encode('utf-8'))
         written.add(name)
 
-    # V1 shares the immutable original media. Only navigation is scoped to /v1/.
+    # V1 media is preserved beneath /previous after the content release.
     for route in HTML_ROUTES:
         dest = public / 'v1' / route
-        if not dest.exists():
+        if not dest.exists() and (public / 'previous/v1' / route).exists():
+            original = (public / 'previous/v1' / route).read_text(encoding='utf-8').replace('/previous/v1/', '/v1/')
+            write('v1/' + route, original)
+        elif not dest.exists():
             original = subprocess.check_output(['git', 'show', f'{V1_COMMIT}:public/{route}'], cwd=REPO).decode('utf-8')
             def keep_v1(match):
                 url = match.group(2)
@@ -40,18 +43,18 @@ def build_ui():
     data = json.loads((public / 'site-data.json').read_text(encoding='utf-8'))
     captions = []
     for group in data['groups']:
-        full = (public / group['caption'].lstrip('/')).read_text(encoding='utf-8').replace('\r\n', '\n').strip()
+        full = (public / group['caption'].lstrip('/')).read_text(encoding='utf-8').replace('\r\n', '\n').rstrip('\n') + '\n'
         assert full.split('\n', 1)[0] == group['title'], group['version']
         group['fullText'] = full
         group['body'] = full.split('\n', 1)[1].lstrip('\n')
         group['preview'] = '/#post/' + group['version']
         captions.append(group['version'] + ' · ' + group['category'] + '\n\n' + full)
     data['uiVersion'] = 'V2'
-    data['previousPreview'] = '/v1/'
+    data['previousPreview'] = '/previous/'
     write('site-data.json', json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     write('downloads/jev-all-captions.txt', '\n\n' + ('\n\n' + '=' * 40 + '\n\n').join(captions) + '\n')
     return written
 
 if __name__ == '__main__':
     written = build_ui()
-    print(json.dumps({'uiVersion': 'V2', 'previousPreview': '/v1/', 'updatedFiles': len(written)}, ensure_ascii=False))
+    print(json.dumps({'uiVersion': 'V2', 'previousPreview': '/previous/', 'updatedFiles': len(written)}, ensure_ascii=False))

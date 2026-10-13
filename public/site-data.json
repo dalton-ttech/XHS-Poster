@@ -1,9 +1,609 @@
 {
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "paper": "https://arxiv.org/abs/2609.27678",
   "pdf": "/downloads/jev-all-versions.pdf",
-  "allDownload": "/downloads/jev-all-versions.zip",
+  "allDownload": "/downloads/",
   "groups": [
+    {
+      "version": "A4-1",
+      "category": "论文推广",
+      "title": "让AI去审批合同，结果如何？",
+      "preview": "/#post/A4-1",
+      "caption": "/versions/a4-1/caption.txt",
+      "download": "/downloads/a4-1.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "让AI去审批合同，结果如何？",
+          "url": "/versions/a4-1/images/01.png",
+          "sha256": "b9bf41c621d7522f5a6f96c306c8a2ed473a500e599945de6a8f0e43b6103ddd"
+        },
+        {
+          "order": 2,
+          "title": "同一份合同，多放几道题会怎样？",
+          "url": "/versions/a4-1/images/02.png",
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
+        },
+        {
+          "order": 3,
+          "title": "Jev 调用费用最低，准确率为77.38%",
+          "url": "/versions/a4-1/images/03.png",
+          "sha256": "3bdd07ce69267757965fe0202f845aafe560ed2b832a8ee4c85c697836280c21"
+        },
+        {
+          "order": 4,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-1/images/04.png",
+          "sha256": "a2a5f07873e72df0af70a70142c9b44790bb76c276ec7f4b0a0c588310f444d7"
+        },
+        {
+          "order": 5,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-1/images/05.png",
+          "sha256": "2b99bf148579f94f7560578251b73db61f22fd49bd04afac56cbed20f1fbf8fe"
+        },
+        {
+          "order": 6,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-1/images/06.png",
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
+        },
+        {
+          "order": 7,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-1/images/07.png",
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1/images/08.png",
+          "sha256": "91ab00b168888c56803d6d8473e727470a0eeb1d79a1301e5a5ce1e6f62bdaf2"
+        }
+      ],
+      "fullText": "让AI去审批合同，结果如何？\n\n让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n",
+      "body": "让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n"
+    },
+    {
+      "version": "A4-2",
+      "category": "论文推广",
+      "title": "相同分数背后的判断变化与持续错误",
+      "preview": "/#post/A4-2",
+      "caption": "/versions/a4-2/caption.txt",
+      "download": "/downloads/a4-2.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "相同分数背后的判断变化与持续错误",
+          "url": "/versions/a4-2/images/01.png",
+          "sha256": "ccae53001bb3fe79262849ea52a91aefdf0bcb29e9565ca0ba4bf3beb61b049a"
+        },
+        {
+          "order": 2,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-2/images/02.png",
+          "sha256": "4adc78a5cb1fa81ba5eb5f2478bf8db9fdbef1606c41331c0d81b71d70a181c3"
+        },
+        {
+          "order": 3,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-2/images/03.png",
+          "sha256": "39f2ee0e014f849969566230b3b6f74a3ad9520c90fc8c3eabcb76f412197e5a"
+        },
+        {
+          "order": 4,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-2/images/04.png",
+          "sha256": "1d6ee967243f544afc759e65c1a21dccf3c122e6b6b8bc944f10e4f66a4d2539"
+        },
+        {
+          "order": 5,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-2/images/05.png",
+          "sha256": "b5ae61695e1732f1b7492535587fb07f034130d64b0791554a740f4ce620cefd"
+        },
+        {
+          "order": 6,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-2/images/06.png",
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
+        },
+        {
+          "order": 7,
+          "title": "调用费用相差数倍，准确率差多少？",
+          "url": "/versions/a4-2/images/07.png",
+          "sha256": "b6325e81d74f8ce28f19f9733c5c081658c1de713477bfea6df089eda75e00e5"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-2/images/08.png",
+          "sha256": "edf7be31c153f71d0545494d15edbda5ff6d6dcc206780b9ea8eddeb630cf905"
+        }
+      ],
+      "fullText": "相同分数背后的判断变化与持续错误\n\n两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n",
+      "body": "两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n"
+    },
+    {
+      "version": "A4-3",
+      "category": "论文推广",
+      "title": "Jev评测：题没变，AI却改了答案",
+      "preview": "/#post/A4-3",
+      "caption": "/versions/a4-3/caption.txt",
+      "download": "/downloads/a4-3.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "Jev评测：题没变，AI却改了答案",
+          "url": "/versions/a4-3/images/01.png",
+          "sha256": "e502b57c4307633febc3b6988dcd5681f4f4ce22a7b59b2a3ff0915e8f774fb2"
+        },
+        {
+          "order": 2,
+          "title": "同一份合同，多放几道题会怎样？",
+          "url": "/versions/a4-3/images/02.png",
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
+        },
+        {
+          "order": 3,
+          "title": "4次改对，4次改错，总分恰好没变",
+          "url": "/versions/a4-3/images/03.png",
+          "sha256": "3c031546d05837e08e3fda398dcdb83ce415b2f2763e11ae369611c750e69c5f"
+        },
+        {
+          "order": 4,
+          "title": "提问没变，答案也出现了变化",
+          "url": "/versions/a4-3/images/04.png",
+          "sha256": "3263c6d555c4b583d0c2cf07d84320556ec44bb8b0fd6ef1f7a3910b011af7ea"
+        },
+        {
+          "order": 5,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-3/images/05.png",
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
+        },
+        {
+          "order": 6,
+          "title": "改对的题和改错的题，可能被总分抵消",
+          "url": "/versions/a4-3/images/06.png",
+          "sha256": "d0f43b2375f04f30058edb35bad1568de04ae13e4ffd70f0b62f02b5cda94e86"
+        },
+        {
+          "order": 7,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-3/images/07.png",
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-3/images/08.png",
+          "sha256": "dc981b0d85af4370b66d9aff4734699d61306e8d7f9338681b6b49e1cf9dea27"
+        }
+      ],
+      "fullText": "Jev评测：题没变，AI却改了答案\n\n同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n",
+      "body": "同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n"
+    },
+    {
+      "version": "A4-4",
+      "category": "论文推广",
+      "title": "让AI去审批合同，结果如何？",
+      "preview": "/#post/A4-4",
+      "caption": "/versions/a4-4/caption.txt",
+      "download": "/downloads/a4-4.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "让AI去审批合同，结果如何？",
+          "url": "/versions/a4-4/images/01.png",
+          "sha256": "072cfbf81300b8107b01d51c1e9f6f1cf8c0ad5c0f7af19574b449ba008f5cce"
+        },
+        {
+          "order": 2,
+          "title": "同一份合同，多放几道题会怎样？",
+          "url": "/versions/a4-4/images/02.png",
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
+        },
+        {
+          "order": 3,
+          "title": "Jev 调用费用最低，准确率为77.38%",
+          "url": "/versions/a4-4/images/03.png",
+          "sha256": "3bdd07ce69267757965fe0202f845aafe560ed2b832a8ee4c85c697836280c21"
+        },
+        {
+          "order": 4,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-4/images/04.png",
+          "sha256": "a2a5f07873e72df0af70a70142c9b44790bb76c276ec7f4b0a0c588310f444d7"
+        },
+        {
+          "order": 5,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-4/images/05.png",
+          "sha256": "2b99bf148579f94f7560578251b73db61f22fd49bd04afac56cbed20f1fbf8fe"
+        },
+        {
+          "order": 6,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-4/images/06.png",
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
+        },
+        {
+          "order": 7,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-4/images/07.png",
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-4/images/08.png",
+          "sha256": "91ab00b168888c56803d6d8473e727470a0eeb1d79a1301e5a5ce1e6f62bdaf2"
+        }
+      ],
+      "fullText": "让AI去审批合同，结果如何？\n\n让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n",
+      "body": "让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n"
+    },
+    {
+      "version": "A4-5",
+      "category": "论文推广",
+      "title": "Jev答题稳不稳？同一题测12次",
+      "preview": "/#post/A4-5",
+      "caption": "/versions/a4-5/caption.txt",
+      "download": "/downloads/a4-5.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "Jev答题稳不稳？同一题测12次",
+          "url": "/versions/a4-5/images/01.png",
+          "sha256": "638f06ca68d81d3042f4334a3ea72b7109f4b5dccf83340f5dff344c59bf4db7"
+        },
+        {
+          "order": 2,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-5/images/02.png",
+          "sha256": "e58ed94896d15230a6664cdca2a5268465e885a0766fed8c89358dacdc897950"
+        },
+        {
+          "order": 3,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-5/images/03.png",
+          "sha256": "4af12bd1c852582dac0038aa55d4f4210306b8bc7bfc389b23dedffd392f2784"
+        },
+        {
+          "order": 4,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-5/images/04.png",
+          "sha256": "016e925f56b006da9a8e0ef8e6154ffc8d1e212b30c31fb66a9b7e0a3d55d741"
+        },
+        {
+          "order": 5,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-5/images/05.png",
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
+        },
+        {
+          "order": 6,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-5/images/06.png",
+          "sha256": "1a8ae78c01e154f0f196a0e26b2e20850c59a7f2da0eea056cd1783f71450b51"
+        },
+        {
+          "order": 7,
+          "title": "三次调用花三倍钱，投票能多答对几题？",
+          "url": "/versions/a4-5/images/07.png",
+          "sha256": "b684d51ecc9ff302ae07a539df1a3bb78aa8474ed1388fe8f300638124a64661"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-5/images/08.png",
+          "sha256": "ae2b2c4a90fd9ddd092372a1a98e06e93e3b4f7ed759e19dff4279c8b5c5f0dc"
+        }
+      ],
+      "fullText": "Jev答题稳不稳？同一题测12次\n\n同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n",
+      "body": "同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n"
+    },
+    {
+      "version": "A4-6",
+      "category": "论文推广",
+      "title": "相同分数背后的判断变化与持续错误",
+      "preview": "/#post/A4-6",
+      "caption": "/versions/a4-6/caption.txt",
+      "download": "/downloads/a4-6.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "相同分数背后的判断变化与持续错误",
+          "url": "/versions/a4-6/images/01.png",
+          "sha256": "9b79350e45ecd4bc5f04fc57210706cb8f157bfb8b498f4083e911d8e6d0480d"
+        },
+        {
+          "order": 2,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-6/images/02.png",
+          "sha256": "4adc78a5cb1fa81ba5eb5f2478bf8db9fdbef1606c41331c0d81b71d70a181c3"
+        },
+        {
+          "order": 3,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-6/images/03.png",
+          "sha256": "39f2ee0e014f849969566230b3b6f74a3ad9520c90fc8c3eabcb76f412197e5a"
+        },
+        {
+          "order": 4,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-6/images/04.png",
+          "sha256": "1d6ee967243f544afc759e65c1a21dccf3c122e6b6b8bc944f10e4f66a4d2539"
+        },
+        {
+          "order": 5,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-6/images/05.png",
+          "sha256": "b5ae61695e1732f1b7492535587fb07f034130d64b0791554a740f4ce620cefd"
+        },
+        {
+          "order": 6,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-6/images/06.png",
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
+        },
+        {
+          "order": 7,
+          "title": "调用费用相差数倍，准确率差多少？",
+          "url": "/versions/a4-6/images/07.png",
+          "sha256": "b6325e81d74f8ce28f19f9733c5c081658c1de713477bfea6df089eda75e00e5"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-6/images/08.png",
+          "sha256": "edf7be31c153f71d0545494d15edbda5ff6d6dcc206780b9ea8eddeb630cf905"
+        }
+      ],
+      "fullText": "相同分数背后的判断变化与持续错误\n\n两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n",
+      "body": "两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n"
+    },
+    {
+      "version": "A4-7",
+      "category": "论文推广",
+      "title": "Jev答题稳不稳？同一题测12次",
+      "preview": "/#post/A4-7",
+      "caption": "/versions/a4-7/caption.txt",
+      "download": "/downloads/a4-7.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "Jev答题稳不稳？同一题测12次",
+          "url": "/versions/a4-7/images/01.png",
+          "sha256": "2e1a5e8ff17cee7decc2862a46d2a4aa444823986eb01f0a5f9f322392b317e2"
+        },
+        {
+          "order": 2,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-7/images/02.png",
+          "sha256": "e58ed94896d15230a6664cdca2a5268465e885a0766fed8c89358dacdc897950"
+        },
+        {
+          "order": 3,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-7/images/03.png",
+          "sha256": "4af12bd1c852582dac0038aa55d4f4210306b8bc7bfc389b23dedffd392f2784"
+        },
+        {
+          "order": 4,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-7/images/04.png",
+          "sha256": "016e925f56b006da9a8e0ef8e6154ffc8d1e212b30c31fb66a9b7e0a3d55d741"
+        },
+        {
+          "order": 5,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-7/images/05.png",
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
+        },
+        {
+          "order": 6,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-7/images/06.png",
+          "sha256": "1a8ae78c01e154f0f196a0e26b2e20850c59a7f2da0eea056cd1783f71450b51"
+        },
+        {
+          "order": 7,
+          "title": "三次调用花三倍钱，投票能多答对几题？",
+          "url": "/versions/a4-7/images/07.png",
+          "sha256": "b684d51ecc9ff302ae07a539df1a3bb78aa8474ed1388fe8f300638124a64661"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-7/images/08.png",
+          "sha256": "ae2b2c4a90fd9ddd092372a1a98e06e93e3b4f7ed759e19dff4279c8b5c5f0dc"
+        }
+      ],
+      "fullText": "Jev答题稳不稳？同一题测12次\n\n同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n",
+      "body": "同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n"
+    },
+    {
+      "version": "A4-8",
+      "category": "论文推广",
+      "title": "Jev评测：题没变，AI却改了答案",
+      "preview": "/#post/A4-8",
+      "caption": "/versions/a4-8/caption.txt",
+      "download": "/downloads/a4-8.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "Jev评测：题没变，AI却改了答案",
+          "url": "/versions/a4-8/images/01.png",
+          "sha256": "5aae463870efc293dbf033c76af2b7aed7b5262b629636fc0642bbd3c60098e9"
+        },
+        {
+          "order": 2,
+          "title": "同一份合同，多放几道题会怎样？",
+          "url": "/versions/a4-8/images/02.png",
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
+        },
+        {
+          "order": 3,
+          "title": "4次改对，4次改错，总分恰好没变",
+          "url": "/versions/a4-8/images/03.png",
+          "sha256": "3c031546d05837e08e3fda398dcdb83ce415b2f2763e11ae369611c750e69c5f"
+        },
+        {
+          "order": 4,
+          "title": "提问没变，答案也出现了变化",
+          "url": "/versions/a4-8/images/04.png",
+          "sha256": "3263c6d555c4b583d0c2cf07d84320556ec44bb8b0fd6ef1f7a3910b011af7ea"
+        },
+        {
+          "order": 5,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-8/images/05.png",
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
+        },
+        {
+          "order": 6,
+          "title": "改对的题和改错的题，可能被总分抵消",
+          "url": "/versions/a4-8/images/06.png",
+          "sha256": "d0f43b2375f04f30058edb35bad1568de04ae13e4ffd70f0b62f02b5cda94e86"
+        },
+        {
+          "order": 7,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-8/images/07.png",
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-8/images/08.png",
+          "sha256": "dc981b0d85af4370b66d9aff4734699d61306e8d7f9338681b6b49e1cf9dea27"
+        }
+      ],
+      "fullText": "Jev评测：题没变，AI却改了答案\n\n同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n",
+      "body": "同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n"
+    },
+    {
+      "version": "A4-9",
+      "category": "论文推广",
+      "title": "用 Jev 审批合同，能省多少钱？",
+      "preview": "/#post/A4-9",
+      "caption": "/versions/a4-9/caption.txt",
+      "download": "/downloads/a4-9.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "用 Jev 审批合同，能省多少钱？",
+          "url": "/versions/a4-9/images/01.png",
+          "sha256": "fb4b4ee317c0bf371f9b16a4cd34bae512023c3f43a0fefdf4ddd2b6e95f9434"
+        },
+        {
+          "order": 2,
+          "title": "Jev 调用费用最低，准确率为77.38%",
+          "url": "/versions/a4-9/images/02.png",
+          "sha256": "ea6e0ef9ac3716462ef608256c3ea0dd92d47e36533edbdea1f08c422564a64f"
+        },
+        {
+          "order": 3,
+          "title": "调用费用相差数倍，准确率差多少？",
+          "url": "/versions/a4-9/images/03.png",
+          "sha256": "d65df3bf20050a2f0366e8f7f92d1fe3904ccf9043d33fd918a81b17bfc5d1c4"
+        },
+        {
+          "order": 4,
+          "title": "一次答17题，Jev的响应时间最短",
+          "url": "/versions/a4-9/images/04.png",
+          "sha256": "a98694966d68847ef8e20d8dd0d319ec591288d6c4df570f3842efbbc76aa182"
+        },
+        {
+          "order": 5,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-9/images/05.png",
+          "sha256": "2b99bf148579f94f7560578251b73db61f22fd49bd04afac56cbed20f1fbf8fe"
+        },
+        {
+          "order": 6,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-9/images/06.png",
+          "sha256": "1a8ae78c01e154f0f196a0e26b2e20850c59a7f2da0eea056cd1783f71450b51"
+        },
+        {
+          "order": 7,
+          "title": "三次调用花三倍钱，投票能多答对几题？",
+          "url": "/versions/a4-9/images/07.png",
+          "sha256": "b684d51ecc9ff302ae07a539df1a3bb78aa8474ed1388fe8f300638124a64661"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-9/images/08.png",
+          "sha256": "a7f58999c10fe54fd83ecf45dbc7830cf4564f0340c950580aa11cb49f8e7923"
+        }
+      ],
+      "fullText": "用 Jev 审批合同，能省多少钱？\n\n这篇论文给出了一笔模型调用费用：每份合同一次请求17项判断，Jev花费0.000228美元，Gemini-3.5-Flash为0.001353美元，前者约为后者的六分之一。\n\n相应的基础准确率，Jev为77.38%，Gemini为82.54%。Jev调用费用较低，准确率也低5.16个百分点。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n已有回答的三次投票没有测出明确的准确率收益。模型调用更便宜，实际审批能否省下同样比例的钱，还取决于复核和业务流程；这些总成本不在论文的测量范围内。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI应用 #合同审核 #大模型评测 #推理成本 #论文分享\n",
+      "body": "这篇论文给出了一笔模型调用费用：每份合同一次请求17项判断，Jev花费0.000228美元，Gemini-3.5-Flash为0.001353美元，前者约为后者的六分之一。\n\n相应的基础准确率，Jev为77.38%，Gemini为82.54%。Jev调用费用较低，准确率也低5.16个百分点。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n已有回答的三次投票没有测出明确的准确率收益。模型调用更便宜，实际审批能否省下同样比例的钱，还取决于复核和业务流程；这些总成本不在论文的测量范围内。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI应用 #合同审核 #大模型评测 #推理成本 #论文分享\n"
+    },
+    {
+      "version": "A4-10",
+      "category": "论文推广",
+      "title": "相同分数背后的判断变化与持续错误",
+      "preview": "/#post/A4-10",
+      "caption": "/versions/a4-10/caption.txt",
+      "download": "/downloads/a4-10.zip",
+      "pages": [
+        {
+          "order": 1,
+          "title": "相同分数背后的判断变化与持续错误",
+          "url": "/versions/a4-10/images/01.png",
+          "sha256": "4a954a680af51d32b76f88484d867815a1589a4d5886ff5cfc0a6733c0043999"
+        },
+        {
+          "order": 2,
+          "title": "都问12次，换种问法有什么影响？",
+          "url": "/versions/a4-10/images/02.png",
+          "sha256": "4adc78a5cb1fa81ba5eb5f2478bf8db9fdbef1606c41331c0d81b71d70a181c3"
+        },
+        {
+          "order": 3,
+          "title": "平均分都约79%，12次全对的题数不同",
+          "url": "/versions/a4-10/images/03.png",
+          "sha256": "39f2ee0e014f849969566230b3b6f74a3ad9520c90fc8c3eabcb76f412197e5a"
+        },
+        {
+          "order": 4,
+          "title": "93道题里，Jev有17道反复答错",
+          "url": "/versions/a4-10/images/04.png",
+          "sha256": "1d6ee967243f544afc759e65c1a21dccf3c122e6b6b8bc944f10e4f66a4d2539"
+        },
+        {
+          "order": 5,
+          "title": "问三次再投票，没有明显提高准确率",
+          "url": "/versions/a4-10/images/05.png",
+          "sha256": "b5ae61695e1732f1b7492535587fb07f034130d64b0791554a740f4ce620cefd"
+        },
+        {
+          "order": 6,
+          "title": "合同没提到的事，Jev更容易答错",
+          "url": "/versions/a4-10/images/06.png",
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
+        },
+        {
+          "order": 7,
+          "title": "调用费用相差数倍，准确率差多少？",
+          "url": "/versions/a4-10/images/07.png",
+          "sha256": "b6325e81d74f8ce28f19f9733c5c081658c1de713477bfea6df089eda75e00e5"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-10/images/08.png",
+          "sha256": "edf7be31c153f71d0545494d15edbda5ff6d6dcc206780b9ea8eddeb630cf905"
+        }
+      ],
+      "fullText": "相同分数背后的判断变化与持续错误\n\n两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n",
+      "body": "两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n"
+    },
     {
       "version": "A4-1-1",
       "category": "论文推广",
@@ -14,373 +614,415 @@
       "pages": [
         {
           "order": 1,
-          "title": "原论文首页",
+          "title": "让AI去审批合同，结果如何？",
           "url": "/versions/a4-1-1/images/01.png",
-          "sha256": "f6e9a14eb3d20cc25c9cda22a0b02cd9bd0fe4c48cc8cab47fb89b17f06a1947"
+          "sha256": "d43c7bd660ad897f5d144704259a7d4e7b1f92628b053b048e7fd8dc48cf094e"
         },
         {
           "order": 2,
-          "title": "让AI去审批合同，结果如何？",
+          "title": "同一份合同，多放几道题会怎样？",
           "url": "/versions/a4-1-1/images/02.png",
-          "sha256": "c33a2f49fddcfd2a2e2bfd8eb71547736656c8232644830c3e9606436348feab"
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
         },
         {
           "order": 3,
-          "title": "答对多少之外，还要看什么？",
+          "title": "Jev 调用费用最低，准确率为77.38%",
           "url": "/versions/a4-1-1/images/03.png",
-          "sha256": "8c562a5dfac5da052182a16361296d2c44a0f3f01a32211282b07ad9dd4db6ad"
+          "sha256": "3bdd07ce69267757965fe0202f845aafe560ed2b832a8ee4c85c697836280c21"
         },
         {
           "order": 4,
-          "title": "同一道题，换四种安排来问",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a4-1-1/images/04.png",
-          "sha256": "da016dabb6d8e7bc63a3ef305d0ca88d93ad8fddcc82803487dace6ccfd9c44d"
+          "sha256": "a2a5f07873e72df0af70a70142c9b44790bb76c276ec7f4b0a0c588310f444d7"
         },
         {
           "order": 5,
-          "title": "平均分接近，一直答对的题却不同",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a4-1-1/images/05.png",
-          "sha256": "1ca405b14377e375b375d2047835c806e46d85591bc0ff1533904f8ee0e1604e"
+          "sha256": "2b99bf148579f94f7560578251b73db61f22fd49bd04afac56cbed20f1fbf8fe"
         },
         {
           "order": 6,
-          "title": "把一个总分，拆回具体的题",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a4-1-1/images/06.png",
-          "sha256": "5ad14491f5957f1212e375c0f016fe1e43c73994d59e83fd4dc212ad6746134f"
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
         },
         {
           "order": 7,
-          "title": "这些结果，能说明什么？",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a4-1-1/images/07.png",
-          "sha256": "7ab3f0f7e22ddc77597428d5f260793e350b46d7de62d19e9723bcf0d13ac19a"
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1-1/images/08.png",
+          "sha256": "91ab00b168888c56803d6d8473e727470a0eeb1d79a1301e5a5ce1e6f62bdaf2"
         }
       ],
-      "fullText": "让AI去审批合同，结果如何？\n\n审批合同，得先弄清条款到底怎么写。JEV这篇论文先测这一步：给AI合同原文，看它能不能答对相关问题。比如，合同要求复制保密资料前先取得书面同意，只在公司内部使用就可以直接复制吗？\n\n这篇论文拿了123份合同、2091道问题，比较JEV和9个语言模型。除了看答对多少，也记录花多少钱、等多久，以及换一种提问安排，同一道题还能不能答对。\n\n研究者从30份合同里各挑一道题，试了四种安排：单独问、连同其他题一起展示、要求一起作答，以及调整回答顺序。每种安排问3次，一道题共答12次。原文、问题和正确答案都不变。\n\n这组重复测试里，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，JEV有23道，Qwen有18道。JEV也有5道题，12次都给了同一个错答案。\n\n这篇论文值得看的地方，是把总分拆开，回到一道道题上：哪些一直对，哪些一直错，哪些会变。这样才更容易看清，两个分数接近的模型，到底差在哪。\n\n重复测试只有30道独立题，能说明的范围有限。这里考的是“能不能根据合同原文答对问题”，还没有检验AI能不能找全法律风险。如果你在研究AI阅读专业材料，可以从这篇入手。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #大模型评测 #AI阅读理解",
-      "body": "审批合同，得先弄清条款到底怎么写。JEV这篇论文先测这一步：给AI合同原文，看它能不能答对相关问题。比如，合同要求复制保密资料前先取得书面同意，只在公司内部使用就可以直接复制吗？\n\n这篇论文拿了123份合同、2091道问题，比较JEV和9个语言模型。除了看答对多少，也记录花多少钱、等多久，以及换一种提问安排，同一道题还能不能答对。\n\n研究者从30份合同里各挑一道题，试了四种安排：单独问、连同其他题一起展示、要求一起作答，以及调整回答顺序。每种安排问3次，一道题共答12次。原文、问题和正确答案都不变。\n\n这组重复测试里，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，JEV有23道，Qwen有18道。JEV也有5道题，12次都给了同一个错答案。\n\n这篇论文值得看的地方，是把总分拆开，回到一道道题上：哪些一直对，哪些一直错，哪些会变。这样才更容易看清，两个分数接近的模型，到底差在哪。\n\n重复测试只有30道独立题，能说明的范围有限。这里考的是“能不能根据合同原文答对问题”，还没有检验AI能不能找全法律风险。如果你在研究AI阅读专业材料，可以从这篇入手。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #大模型评测 #AI阅读理解"
+      "fullText": "让AI去审批合同，结果如何？\n\n让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n",
+      "body": "让AI审批合同，至少得先答对合同里的问题。这篇Jev评测从这一步入手：给定合同和一句陈述，判断原文支持、与原文矛盾，还是根本没有提到。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n对已有回答进行三次投票，也没有测出明确的准确率提升。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI评测 #合同审核 #大模型 #论文分享 #AI应用\n"
     },
     {
       "version": "A4-1-2",
       "category": "论文推广",
-      "title": "JEV的评测论文来了",
+      "title": "相同分数背后的判断变化与持续错误",
       "preview": "/#post/A4-1-2",
       "caption": "/versions/a4-1-2/caption.txt",
       "download": "/downloads/a4-1-2.zip",
       "pages": [
         {
           "order": 1,
-          "title": "原论文首页",
+          "title": "相同分数背后的判断变化与持续错误",
           "url": "/versions/a4-1-2/images/01.png",
-          "sha256": "f6e9a14eb3d20cc25c9cda22a0b02cd9bd0fe4c48cc8cab47fb89b17f06a1947"
+          "sha256": "7aad223eb16b386dc0c6f011fce48fb7d4eade785c4a96e0b0ec83289f24cdf5"
         },
         {
           "order": 2,
-          "title": "JEV的评测论文来了",
+          "title": "都问12次，换种问法有什么影响？",
           "url": "/versions/a4-1-2/images/02.png",
-          "sha256": "956738fccb1752fe84ce2ebec4983b1bb31990c5e3efcf26161af328868a0e46"
+          "sha256": "4adc78a5cb1fa81ba5eb5f2478bf8db9fdbef1606c41331c0d81b71d70a181c3"
         },
         {
           "order": 3,
-          "title": "两个约79%，是怎么测出来的？",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a4-1-2/images/03.png",
-          "sha256": "af0fd6508bf67d56fed44837065aae4b35649bca4a400ca3aa5344e9bf8e26a2"
+          "sha256": "39f2ee0e014f849969566230b3b6f74a3ad9520c90fc8c3eabcb76f412197e5a"
         },
         {
           "order": 4,
-          "title": "一直答对的题，一个23道，一个18道",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a4-1-2/images/04.png",
-          "sha256": "f5401ab51deac2238948f2f4ba5473838caa6ee0fe6cb78b3e48b6cdd5c8f70f"
+          "sha256": "1d6ee967243f544afc759e65c1a21dccf3c122e6b6b8bc944f10e4f66a4d2539"
         },
         {
           "order": 5,
-          "title": "同样的平均分，错误分布并不一样",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a4-1-2/images/05.png",
-          "sha256": "9d30d0ac80b08ac5cf0fbc2ee9ee2dc2643be9d42e90cd785f90186c58e56466"
+          "sha256": "b5ae61695e1732f1b7492535587fb07f034130d64b0791554a740f4ce620cefd"
         },
         {
           "order": 6,
-          "title": "分数相近，具体判断仍有差别",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a4-1-2/images/06.png",
-          "sha256": "e698ce6f503d9d570c23d3a3bf28c14b0d42b985860a34acf7754499109132f9"
+          "sha256": "08b1bad30e108f4e0e206abb0b79b74b2578ad492f99251bdd0a656ddf46a399"
         },
         {
           "order": 7,
-          "title": "看完总分，再翻到Table 2",
+          "title": "调用费用相差数倍，准确率差多少？",
           "url": "/versions/a4-1-2/images/07.png",
-          "sha256": "ced7da20c77b3a59c9d545fe3d57865e96f4b015e513037635bef507f68d2ca1"
+          "sha256": "b6325e81d74f8ce28f19f9733c5c081658c1de713477bfea6df089eda75e00e5"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1-2/images/08.png",
+          "sha256": "edf7be31c153f71d0545494d15edbda5ff6d6dcc206780b9ea8eddeb630cf905"
         }
       ],
-      "fullText": "JEV的评测论文来了\n\nJEV的评测论文已在arXiv公开。这次研究比较了JEV和9个语言模型，其中一组结果很有意思：一个模型答对286次，另一个答对285次。总分几乎一样，每道题的表现却不一样。\n\n论文选了30道根据合同内容作答的问题，换四种提问安排，每种问3次，每个模型共答360次。JEV答对286次，Qwen3.5-9B答对285次，平均正确率分别为79.44%和79.17%。\n\n把结果按题目排在一起，差别就出来了：JEV有23道题，12次全部答对；Qwen3.5-9B有18道。答对的总数接近，不代表一直答对的是同样多的题。\n\n再看错题。JEV有5道题一直给同一个错答案，2道题的答案变过。Qwen3.5-9B有2道题一直答错，8道题给出过不同的有效答案，还有2道题至少出现过一次无效回答。\n\n这也是论文标题“相同分数，不同判断”的意思。看榜单能知道模型一共答对多少；把每道题的回答展开看，才知道错误都发生在哪里。\n\n这次只有30道独立题，不能据此说哪个模型在所有任务上都更好。比较两个分数很接近的模型时，倒是可以借鉴这个看法：除了总分，也看看每道题的记录。具体结果在Table 2。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI评测 #大模型",
-      "body": "JEV的评测论文已在arXiv公开。这次研究比较了JEV和9个语言模型，其中一组结果很有意思：一个模型答对286次，另一个答对285次。总分几乎一样，每道题的表现却不一样。\n\n论文选了30道根据合同内容作答的问题，换四种提问安排，每种问3次，每个模型共答360次。JEV答对286次，Qwen3.5-9B答对285次，平均正确率分别为79.44%和79.17%。\n\n把结果按题目排在一起，差别就出来了：JEV有23道题，12次全部答对；Qwen3.5-9B有18道。答对的总数接近，不代表一直答对的是同样多的题。\n\n再看错题。JEV有5道题一直给同一个错答案，2道题的答案变过。Qwen3.5-9B有2道题一直答错，8道题给出过不同的有效答案，还有2道题至少出现过一次无效回答。\n\n这也是论文标题“相同分数，不同判断”的意思。看榜单能知道模型一共答对多少；把每道题的回答展开看，才知道错误都发生在哪里。\n\n这次只有30道独立题，不能据此说哪个模型在所有任务上都更好。比较两个分数很接近的模型时，倒是可以借鉴这个看法：除了总分，也看看每道题的记录。具体结果在Table 2。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI评测 #大模型"
+      "fullText": "相同分数背后的判断变化与持续错误\n\n两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n",
+      "body": "两次测试总分一样，模型就表现一样吗？这篇Jev评测记录了一种情况：有些答案改对，有些改错，准确率恰好不变。它也关注另一类问题——无论问多少次，都重复同一个错误。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n反复调用后再投票，在这组测试中也没有显示明确收益。研究展示了总分之外的判断变化和持续错误。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文分享 #大模型评测 #AI可靠性 #LLM #人工智能\n"
     },
     {
       "version": "A4-1-3",
       "category": "论文推广",
-      "title": "JEV评测：题没变，AI却改了答案",
+      "title": "Jev评测：题没变，AI却改了答案",
       "preview": "/#post/A4-1-3",
       "caption": "/versions/a4-1-3/caption.txt",
       "download": "/downloads/a4-1-3.zip",
       "pages": [
         {
           "order": 1,
-          "title": "原论文首页",
+          "title": "Jev评测：题没变，AI却改了答案",
           "url": "/versions/a4-1-3/images/01.png",
-          "sha256": "f6e9a14eb3d20cc25c9cda22a0b02cd9bd0fe4c48cc8cab47fb89b17f06a1947"
+          "sha256": "18274560f697fd1bf7a16754e5e88ca85cd33d99a2efff953d556e671b24d1fa"
         },
         {
           "order": 2,
-          "title": "题没变，AI却改了答案",
+          "title": "同一份合同，多放几道题会怎样？",
           "url": "/versions/a4-1-3/images/02.png",
-          "sha256": "877affbac91e85dc9201e5da44bd5f90d21c08b3d5f6cbc6339b3799f7bbdb2e"
+          "sha256": "6546b24c018b8891ac95891ae0e4b362a744bb89d0729f8fab21f5e618ed35cb"
         },
         {
           "order": 3,
-          "title": "多出来的16道题，只展示，不作答",
+          "title": "4次改对，4次改错，总分恰好没变",
           "url": "/versions/a4-1-3/images/03.png",
-          "sha256": "1e6db52bd663ae0c92211b929e9c702fb43d1a48e6875ae6c899ef7bc1c354cc"
+          "sha256": "3c031546d05837e08e3fda398dcdb83ce415b2f2763e11ae369611c750e69c5f"
         },
         {
           "order": 4,
-          "title": "90组配对里，有9组答案变了",
+          "title": "提问没变，答案也出现了变化",
           "url": "/versions/a4-1-3/images/04.png",
-          "sha256": "04917bbb4eb985170dade9e0ae69f0b6e136c538365c6aa284a730a99d3f78c1"
+          "sha256": "3263c6d555c4b583d0c2cf07d84320556ec44bb8b0fd6ef1f7a3910b011af7ea"
         },
         {
           "order": 5,
-          "title": "总分没变，具体的答案变了",
+          "title": "都问12次，换种问法有什么影响？",
           "url": "/versions/a4-1-3/images/05.png",
-          "sha256": "adf7aedb9e1fa4a31447614e85503eeb937dd9718fa9aafb79c8ba1a5e5786e4"
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
         },
         {
           "order": 6,
-          "title": "这9组变化，不能全算在额外题上",
+          "title": "改对的题和改错的题，可能被总分抵消",
           "url": "/versions/a4-1-3/images/06.png",
-          "sha256": "90ff5da9b03f08271ca30ed4f032f02559bf42fe949a1d280018f9da97cb8791"
+          "sha256": "d0f43b2375f04f30058edb35bad1568de04ae13e4ffd70f0b62f02b5cda94e86"
         },
         {
           "order": 7,
-          "title": "改对、改错、换错，分开看才清楚",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a4-1-3/images/07.png",
-          "sha256": "8a1af5ba9369c9c4b101f040f90e11d65bfcb2aa8e868a900f1653ff60656822"
+          "sha256": "7308a47f24cf2787b5184ec66acfbdb69c8dbc2a65fff02fd7400063474b5b4b"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1-3/images/08.png",
+          "sha256": "dc981b0d85af4370b66d9aff4734699d61306e8d7f9338681b6b49e1cf9dea27"
         }
       ],
-      "fullText": "JEV评测：题没变，AI却改了答案\n\nJEV这篇评测论文里，有一组专门比较提问安排的实验：同一份合同、同一道题，只在旁边多放16道不用回答的问题，AI会不会改答案？参与这组对照的是Qwen3.5-4B。\n\nA组只展示原题；B组把同一份合同的17道题都展示出来，但也只要求回答原题。两组的问题和正确答案相同，区别在于能不能看见另外16道题。\n\n30道题，每种安排问3次，得到90组配对。Qwen3.5-4B有9组答案变了：4组改对，4组改错，还有1组从一种错答案换成另一种。\n\n改对4组，又改错4组，答对的总数刚好没变。只看准确率，两组似乎一样；回到具体某一道题，拿到的答案却可能不同。\n\n不过，相同的问题重复提交，答案本身也可能变。所以这9组变化，不能全归因于旁边多出的16道题。答案变了，也不一定是退步了，还得看它是改对还是改错。\n\n这篇论文把回答一一配对，分开看改对、改错和换成另一种错误。如果你正在研究批量提问，或遇到过“总分没变，具体结果却变了”，这组实验值得一看。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #大模型评测 #提示词",
-      "body": "JEV这篇评测论文里，有一组专门比较提问安排的实验：同一份合同、同一道题，只在旁边多放16道不用回答的问题，AI会不会改答案？参与这组对照的是Qwen3.5-4B。\n\nA组只展示原题；B组把同一份合同的17道题都展示出来，但也只要求回答原题。两组的问题和正确答案相同，区别在于能不能看见另外16道题。\n\n30道题，每种安排问3次，得到90组配对。Qwen3.5-4B有9组答案变了：4组改对，4组改错，还有1组从一种错答案换成另一种。\n\n改对4组，又改错4组，答对的总数刚好没变。只看准确率，两组似乎一样；回到具体某一道题，拿到的答案却可能不同。\n\n不过，相同的问题重复提交，答案本身也可能变。所以这9组变化，不能全归因于旁边多出的16道题。答案变了，也不一定是退步了，还得看它是改对还是改错。\n\n这篇论文把回答一一配对，分开看改对、改错和换成另一种错误。如果你正在研究批量提问，或遇到过“总分没变，具体结果却变了”，这组实验值得一看。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #大模型评测 #提示词"
+      "fullText": "Jev评测：题没变，AI却改了答案\n\n同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n",
+      "body": "同一份合同、同一道题，只是多展示几道问题，模型的答案就可能变化。Jev这篇评测把变化逐项记录下来：哪些由错变对，哪些由对变错，哪些换成了另一个错答案。\n\n以Qwen-3.5-4B为例，A/B两种提问安排的90组配对回答中，有9组答案变化：4组改对、4组改错、1组换成另一个错答案，总分恰好抵消。这9次变化涉及6道题；相同请求下的重复调用也出现过答案波动。\n\n等调用次数对照中，同样30道题一组重复相同请求12次，另一组使用四种安排各3次。Gemini平均正确率均为83.33%，12次全对的题数由25变为23；差异区间包含零，尚不能确定哪种安排更稳。\n\n这项研究区分了跨提问安排的变化与相同请求下的波动，并进一步统计持续正确、持续错误和多数投票结果。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #提示词 #AI可靠性 #论文解读 #LLM\n"
     },
     {
       "version": "A4-1-4",
       "category": "论文推广",
-      "title": "JEV答题稳不稳？同一题测12次",
+      "title": "Jev答题稳不稳？同一题测12次",
       "preview": "/#post/A4-1-4",
       "caption": "/versions/a4-1-4/caption.txt",
       "download": "/downloads/a4-1-4.zip",
       "pages": [
         {
           "order": 1,
-          "title": "原论文首页",
+          "title": "Jev答题稳不稳？同一题测12次",
           "url": "/versions/a4-1-4/images/01.png",
-          "sha256": "f6e9a14eb3d20cc25c9cda22a0b02cd9bd0fe4c48cc8cab47fb89b17f06a1947"
+          "sha256": "145369dfc079089887be82a3a446ee89d4a8a629d7f1f61ec0f4b8f550a4f102"
         },
         {
           "order": 2,
-          "title": "JEV答题稳不稳？同一题测12次",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a4-1-4/images/02.png",
-          "sha256": "2e676c760d6a8538c89be0efdbc9c0e30a3859ad1aad42c43d1317446eba837f"
+          "sha256": "e58ed94896d15230a6664cdca2a5268465e885a0766fed8c89358dacdc897950"
         },
         {
           "order": 3,
-          "title": "重复问，还得逐次核对答案",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a4-1-4/images/03.png",
-          "sha256": "bea4176564ea7c219617e06359b42988accc928b71d81941052a692b165b6b5d"
+          "sha256": "4af12bd1c852582dac0038aa55d4f4210306b8bc7bfc389b23dedffd392f2784"
         },
         {
           "order": 4,
-          "title": "JEV有5道题，12次都给了同一个错答案",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a4-1-4/images/04.png",
-          "sha256": "cb74e42d631f530583ce92e84d7b362d8759dcec5be0340c66d8e6b848b278c6"
+          "sha256": "016e925f56b006da9a8e0ef8e6154ffc8d1e212b30c31fb66a9b7e0a3d55d741"
         },
         {
           "order": 5,
-          "title": "答案有没有变，和答案对不对",
+          "title": "都问12次，换种问法有什么影响？",
           "url": "/versions/a4-1-4/images/05.png",
-          "sha256": "ed7bba5a6ece9ffa29adf39938a862a17ef616d44c6459c4f4d0dbd47d574472"
+          "sha256": "159a95549240e6c468333e33002e5f9cd9fc6193752fc44af15ca62a848d1ca9"
         },
         {
           "order": 6,
-          "title": "这30道题，给了什么启发？",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a4-1-4/images/06.png",
-          "sha256": "8a9cbd2003f8f5556546482a15b7b84cb94909b14aeb4e0f7646ad2ff956e441"
+          "sha256": "1a8ae78c01e154f0f196a0e26b2e20850c59a7f2da0eea056cd1783f71450b51"
         },
         {
           "order": 7,
-          "title": "谈模型可靠性，先把“稳定”说清楚",
+          "title": "三次调用花三倍钱，投票能多答对几题？",
           "url": "/versions/a4-1-4/images/07.png",
-          "sha256": "7de95ce19fea3373296d7fe3dd36cdbac3b15955881d2f215e134b9b9527cf0b"
+          "sha256": "b684d51ecc9ff302ae07a539df1a3bb78aa8474ed1388fe8f300638124a64661"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1-4/images/08.png",
+          "sha256": "ae2b2c4a90fd9ddd092372a1a98e06e93e3b4f7ed759e19dff4279c8b5c5f0dc"
         }
       ],
-      "fullText": "JEV答题稳不稳？同一题测12次\n\nJEV答同一道题，能不能每次都答对？这篇论文挑了30道题，每道问12次。看结果时，要同时留意两件事：答案有没有变，以及答案对不对。\n\n这篇论文先让JEV和9个语言模型根据合同内容回答问题，再选30份合同，各固定一道题，换四种提问安排，每种问3次。研究者把每次回答都和正确答案核对。\n\nJEV有23道题，12次全部答对；5道题，12次都给了同一个错答案；还有2道题的答案变过。如果只数“回答一样”，那5道一直答错的题也会被算进去。\n\n所以，答案有没有变、答案对不对，要分开看。论文分别记录一直答对、一直答错、答案变过，以及出现过无效回答的题目，避免把“前后一致”当成“判断正确”。\n\n这30道独立题，还不足以估计AI看其他合同会错多少。但评测方法可以借鉴：重复提问之后，别只比较前后答案，还要逐次核对它有没有答对。\n\n如果你准备让AI反复处理同一类问题，这篇论文提醒我们把“稳定”说清楚：是每次都说一样的话，还是每次都能把问题答对？具体例子在Table 2。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI可靠性 #大模型评测",
-      "body": "JEV答同一道题，能不能每次都答对？这篇论文挑了30道题，每道问12次。看结果时，要同时留意两件事：答案有没有变，以及答案对不对。\n\n这篇论文先让JEV和9个语言模型根据合同内容回答问题，再选30份合同，各固定一道题，换四种提问安排，每种问3次。研究者把每次回答都和正确答案核对。\n\nJEV有23道题，12次全部答对；5道题，12次都给了同一个错答案；还有2道题的答案变过。如果只数“回答一样”，那5道一直答错的题也会被算进去。\n\n所以，答案有没有变、答案对不对，要分开看。论文分别记录一直答对、一直答错、答案变过，以及出现过无效回答的题目，避免把“前后一致”当成“判断正确”。\n\n这30道独立题，还不足以估计AI看其他合同会错多少。但评测方法可以借鉴：重复提问之后，别只比较前后答案，还要逐次核对它有没有答对。\n\n如果你准备让AI反复处理同一类问题，这篇论文提醒我们把“稳定”说清楚：是每次都说一样的话，还是每次都能把问题答对？具体例子在Table 2。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI可靠性 #大模型评测"
+      "fullText": "Jev答题稳不稳？同一题测12次\n\n同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n",
+      "body": "同一道题问12次，结果会怎样？Jev这篇评测既记录一直答对的题，也记录每次都答错的题。两种表现都很“稳定”，实际意义却不同。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI可靠性 #大模型评测 #模型幻觉 #论文分享 #LLM\n"
     },
     {
       "version": "A4-1-5",
       "category": "论文推广",
-      "title": "用 JEV 审批合同，能省多少钱？",
+      "title": "用 Jev 审批合同，能省多少钱？",
       "preview": "/#post/A4-1-5",
       "caption": "/versions/a4-1-5/caption.txt",
       "download": "/downloads/a4-1-5.zip",
       "pages": [
         {
           "order": 1,
-          "title": "原论文首页",
+          "title": "用 Jev 审批合同，能省多少钱？",
           "url": "/versions/a4-1-5/images/01.png",
-          "sha256": "f6e9a14eb3d20cc25c9cda22a0b02cd9bd0fe4c48cc8cab47fb89b17f06a1947"
+          "sha256": "1f125f0ad6eb4d4346be40be6735aa41091346560808e0f2977f3934d8adfb24"
         },
         {
           "order": 2,
-          "title": "用 JEV 审批合同，能省多少钱？",
+          "title": "Jev 调用费用最低，准确率为77.38%",
           "url": "/versions/a4-1-5/images/02.png",
-          "sha256": "ba2b21b4deca9b670139da856e9382e63b0e8f1cf3146f6fc7918102cad1051c"
+          "sha256": "ea6e0ef9ac3716462ef608256c3ea0dd92d47e36533edbdea1f08c422564a64f"
         },
         {
           "order": 3,
-          "title": "这套配置下，JEV成本约为六分之一",
+          "title": "调用费用相差数倍，准确率差多少？",
           "url": "/versions/a4-1-5/images/03.png",
-          "sha256": "10ffc32b3fda1eac69e512ab002ccd47a2e9a6aede8fb82bd38c443a744192ab"
+          "sha256": "d65df3bf20050a2f0366e8f7f92d1fe3904ccf9043d33fd918a81b17bfc5d1c4"
         },
         {
           "order": 4,
-          "title": "成本低，准确率也有取舍",
+          "title": "一次答17题，Jev的响应时间最短",
           "url": "/versions/a4-1-5/images/04.png",
-          "sha256": "1946229e2ab72cab88f75b4b61e80923eae01d6dca027d6ebb764882d862b571"
+          "sha256": "a98694966d68847ef8e20d8dd0d319ec591288d6c4df570f3842efbbc76aa182"
         },
         {
           "order": 5,
-          "title": "把价格、速度、准确率放在一起看",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a4-1-5/images/05.png",
-          "sha256": "f25d83bff7f5587c7aef2ef7d417afd51ba3b906aafc7b0d340e5efbbf0e7ccc"
+          "sha256": "2b99bf148579f94f7560578251b73db61f22fd49bd04afac56cbed20f1fbf8fe"
         },
         {
           "order": 6,
-          "title": "两组测试的分数，不能混着比较",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a4-1-5/images/06.png",
-          "sha256": "5420abb63e688c3be581e1bde2815bae9d46da0c5943baab63facc568f517787"
+          "sha256": "1a8ae78c01e154f0f196a0e26b2e20850c59a7f2da0eea056cd1783f71450b51"
         },
         {
           "order": 7,
-          "title": "做模型选型，可以先看Table 1",
+          "title": "三次调用花三倍钱，投票能多答对几题？",
           "url": "/versions/a4-1-5/images/07.png",
-          "sha256": "0da6d030906a39ce428d7bda904cc707b232982e23c2a82a9c72d4459812d747"
+          "sha256": "b684d51ecc9ff302ae07a539df1a3bb78aa8474ed1388fe8f300638124a64661"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a4-1-5/images/08.png",
+          "sha256": "a7f58999c10fe54fd83ecf45dbc7830cf4564f0340c950580aa11cb49f8e7923"
         }
       ],
-      "fullText": "用 JEV 审批合同，能省多少钱？\n\n把JEV用在合同审批前的条款核对，费用怎么样？这篇论文让它和9个语言模型根据合同内容回答问题，记录了每份合同的费用、响应时间和准确率，可以放在一起比较。\n\n这篇论文比较了JEV和9个语言模型。在123份合同、2091道问题的基础测试中，JEV每份合同花费0.000228美元，Gemini 3.5 Flash-Lite为0.001353美元。按论文的配置和价格算，JEV约为后者的六分之一。\n\n但便宜也有取舍。JEV的基础准确率是77.38%，Flash-Lite是82.54%，高5.16个百分点。两者响应时间的中位数，分别为1.24秒和1.60秒。\n\n这套配置下，JEV花得少、返回得快；Flash-Lite答对得更多。论文把这几项放在一起，让人更容易比较：愿意多花的钱，换来了多少正确回答。\n\n论文还单独挑了30道题，换提问安排、反复作答，观察哪些题能一直答对。那组分数和这里的基础准确率，用的题目和统计方式不同，要分开看。\n\n这些数字对应论文测试时的版本、配置和价格。如果你在挑选处理文档的AI，可以先看Table 1里的成本和准确率，再看Table 2里的重复作答记录，想想哪种表现更符合自己的需要。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI应用 #大模型评测",
-      "body": "把JEV用在合同审批前的条款核对，费用怎么样？这篇论文让它和9个语言模型根据合同内容回答问题，记录了每份合同的费用、响应时间和准确率，可以放在一起比较。\n\n这篇论文比较了JEV和9个语言模型。在123份合同、2091道问题的基础测试中，JEV每份合同花费0.000228美元，Gemini 3.5 Flash-Lite为0.001353美元。按论文的配置和价格算，JEV约为后者的六分之一。\n\n但便宜也有取舍。JEV的基础准确率是77.38%，Flash-Lite是82.54%，高5.16个百分点。两者响应时间的中位数，分别为1.24秒和1.60秒。\n\n这套配置下，JEV花得少、返回得快；Flash-Lite答对得更多。论文把这几项放在一起，让人更容易比较：愿意多花的钱，换来了多少正确回答。\n\n论文还单独挑了30道题，换提问安排、反复作答，观察哪些题能一直答对。那组分数和这里的基础准确率，用的题目和统计方式不同，要分开看。\n\n这些数字对应论文测试时的版本、配置和价格。如果你在挑选处理文档的AI，可以先看Table 1里的成本和准确率，再看Table 2里的重复作答记录，想想哪种表现更符合自己的需要。\n\n论文：Same Scores, Different Decisions（JEV与语言模型评测），arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n\n#论文推荐 #JEV #AI应用 #大模型评测"
+      "fullText": "用 Jev 审批合同，能省多少钱？\n\n这篇论文给出了一笔模型调用费用：每份合同一次请求17项判断，Jev花费0.000228美元，Gemini-3.5-Flash为0.001353美元，前者约为后者的六分之一。\n\n相应的基础准确率，Jev为77.38%，Gemini为82.54%。Jev调用费用较低，准确率也低5.16个百分点。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n已有回答的三次投票没有测出明确的准确率收益。模型调用更便宜，实际审批能否省下同样比例的钱，还取决于复核和业务流程；这些总成本不在论文的测量范围内。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI应用 #合同审核 #大模型评测 #推理成本 #论文分享\n",
+      "body": "这篇论文给出了一笔模型调用费用：每份合同一次请求17项判断，Jev花费0.000228美元，Gemini-3.5-Flash为0.001353美元，前者约为后者的六分之一。\n\n相应的基础准确率，Jev为77.38%，Gemini为82.54%。Jev调用费用较低，准确率也低5.16个百分点。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n已有回答的三次投票没有测出明确的准确率收益。模型调用更便宜，实际审批能否省下同样比例的钱，还取决于复核和业务流程；这些总成本不在论文的测量范围内。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #AI应用 #合同审核 #大模型评测 #推理成本 #论文分享\n"
     },
     {
       "version": "A1-3",
       "category": "论文解读",
-      "title": "让AI处理合同，JEV表现如何？",
+      "title": "让AI处理合同，Jev表现如何？",
       "preview": "/#post/A1-3",
       "caption": "/versions/a1-3/caption.txt",
       "download": "/downloads/a1-3.zip",
       "pages": [
         {
           "order": 1,
-          "title": "让AI处理合同，JEV表现如何？",
+          "title": "让AI处理合同，Jev表现如何？",
           "url": "/versions/a1-3/images/01.png",
-          "sha256": "7b393a0c5eec9d77c07f856d063d7d49e5bb5ee44537e6193cc4e0f5cc419517"
+          "sha256": "e8db467d1af303b6e50e1b6775bdae82e2ffc4becd25d4cc3f1708104b3e0e11"
         },
         {
           "order": 2,
-          "title": "JEV和9个模型，回答了同一批问题。",
+          "title": "同一份合同，多放几道题会怎样？",
           "url": "/versions/a1-3/images/02.png",
-          "sha256": "5f83d2ec3a006addf6548cebd66c5a55c8e6ba0243092954833b4424812f31a7"
+          "sha256": "1c976f79ab6b775667123968d75ff3f7b622104729e157f5f695714792f77f00"
         },
         {
           "order": 3,
-          "title": "附加题不用做，原题答案怎么变了？",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a1-3/images/03.png",
-          "sha256": "4f6a0fa9dc0faa9a2ed707c7f16b5bc455c938caed874ad3bcce5412e948d9e8"
+          "sha256": "5e83015c78259e55756548f1f7f58b445e470c3d6493824370e5f3f15979e626"
         },
         {
           "order": 4,
-          "title": "分数差不多，答得就一样好吗？",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a1-3/images/04.png",
-          "sha256": "05f82ba7697c5b648687f34451bd910ffb880a757854232165dbb424589b737a"
+          "sha256": "c3f72a90191942290b1ebd218ccc1c744e4ea129bf6d7f362e5eb126fa329185"
         },
         {
           "order": 5,
-          "title": "确实省了钱，那准确率呢？",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a1-3/images/05.png",
-          "sha256": "aa3e40e9d8ba292f2f10ccaded34f8eb152b5768f38e5315b246479a4abe03b3"
+          "sha256": "f968205d4a35455c81efb334e79f23d352e72f981cbcd337be980ed27450cfd8"
         },
         {
           "order": 6,
-          "title": "看完之后，我不会只盯着总分。",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a1-3/images/06.png",
-          "sha256": "bc08e722112c29aece697172a17e8485a4fcdfe438dc14159fa47601bfbbab72"
+          "sha256": "180fba1af0ea07eb12e1104c26eb3b7d8f041248f466f76f45d5e06488d93786"
+        },
+        {
+          "order": 7,
+          "title": "Jev 调用费用最低，准确率为77.38%",
+          "url": "/versions/a1-3/images/07.png",
+          "sha256": "40f1cb49664464d52d0b5da88751b3642a65bc295c349aec4e80646e45ed0429"
+        },
+        {
+          "order": 8,
+          "title": "论文与代码",
+          "url": "/versions/a1-3/images/08.png",
+          "sha256": "7b54f20757fe07b81f439749bd7b93a1b5ee9ca841cd77831431f6909734dfec"
         }
       ],
-      "fullText": "让AI处理合同，JEV表现如何？\n\n我最近读到一篇论文，用123份合同来测AI：给它原文，再问里面是怎么规定的。除了答对多少，还看要花多少钱、回答会不会变。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n读完以后，我更想翻一翻具体的错题。总分接近的模型，不一定在同样的题上靠谱；前后说得一样，也不一定说得对。\n\n我把结果整理成了6张图，最后一张列了接着读论文的线索。结果对应本次任务和配置；重复测试只有30道独立题，不能据此判断所有场景里的表现。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解",
-      "body": "我最近读到一篇论文，用123份合同来测AI：给它原文，再问里面是怎么规定的。除了答对多少，还看要花多少钱、回答会不会变。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n读完以后，我更想翻一翻具体的错题。总分接近的模型，不一定在同样的题上靠谱；前后说得一样，也不一定说得对。\n\n我把结果整理成了6张图，最后一张列了接着读论文的线索。结果对应本次任务和配置；重复测试只有30道独立题，不能据此判断所有场景里的表现。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解"
+      "fullText": "让AI处理合同，Jev表现如何？\n\n研究者把Jev和9个语言模型放进同一项合同测试，比较它们答得是否正确、调用费用多少，以及响应需要多久。材料来自123份合同，共2,091项判断。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文解读 #大模型评测 #AI可靠性 #自然语言处理\n",
+      "body": "研究者把Jev和9个语言模型放进同一项合同测试，比较它们答得是否正确、调用费用多少，以及响应需要多久。材料来自123份合同，共2,091项判断。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文解读 #大模型评测 #AI可靠性 #自然语言处理\n"
     },
     {
       "version": "A2-3",
       "category": "论文解读",
-      "title": "JEV便宜这么多，答题靠谱吗？",
+      "title": "Jev便宜这么多，答题靠谱吗？",
       "preview": "/#post/A2-3",
       "caption": "/versions/a2-3/caption.txt",
       "download": "/downloads/a2-3.zip",
       "pages": [
         {
           "order": 1,
-          "title": "JEV便宜这么多，答题靠谱吗？",
+          "title": "Jev便宜这么多，答题靠谱吗？",
           "url": "/versions/a2-3/images/01.png",
-          "sha256": "1e0ff34bd67dfb76bf021fa175390a1a3285151eeaeefcf264587c63a29d04fa"
+          "sha256": "c4ff6106f37f965526ddc6c6e6996c879822b97b80744ab4dbe1ff1655588e7f"
         },
         {
           "order": 2,
-          "title": "先试一题：这些资料能直接复制吗？",
+          "title": "同一份合同，多放几道题会怎样？",
           "url": "/versions/a2-3/images/02.png",
-          "sha256": "4cf063337177a13e092cb383d1c640a41bd6cffe40faacb01d34d9f86b285837"
+          "sha256": "330b1b59730e6998b7023ec9e0944a5bf97522b861629de4ef5772ae5303fe59"
         },
         {
           "order": 3,
-          "title": "JEV和9个模型，回答了同一批问题。",
+          "title": "Jev 调用费用最低，准确率为77.38%",
           "url": "/versions/a2-3/images/03.png",
-          "sha256": "0699c38bf9e721fe341a1679d4092a46472f52a7765314ea2bc3c93fc6d119ec"
+          "sha256": "15b06900f7238b706b5bda6d24cc270385eab3875c74cdd08e765ef8c90faa4c"
         },
         {
           "order": 4,
-          "title": "都在79%左右，差别在哪儿？",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a2-3/images/04.png",
-          "sha256": "0a7648174f90e4079eb94a23111fa20d8da399d68213517371b108c2f7a3876c"
+          "sha256": "f7fd99103b489346ae3af858ed5a6cce2fe4390d5146dfb2518f91e433dc70be"
         },
         {
           "order": 5,
-          "title": "AI也可能“稳定地答错”。",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a2-3/images/05.png",
-          "sha256": "78187f4a1b326d99dac5fb872a2b618c707063d808c3aca704272566fd87294d"
+          "sha256": "ccfee6383da55cfc85ee9e8821e4708ca5aea38fb9a19186608e19934f30abf3"
         },
         {
           "order": 6,
-          "title": "附加题不用做，原题答案怎么变了？",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a2-3/images/06.png",
-          "sha256": "0358f2b18c6cd0e659150480a6951a8e66e4dc7eb82e6aed1abf29bb74f96cfa"
+          "sha256": "136ea0035db21e8135680c30655b0d20ad782a619117f908ef07e068174b72c5"
         },
         {
           "order": 7,
-          "title": "便宜是真的，答题水平也得看。",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a2-3/images/07.png",
-          "sha256": "988451f0b1eb163ef2e0d94b3c5ba13e7f349cf3aa1ec8b49ca20ca6e4645d4a"
+          "sha256": "793207b276cd85faa1e9bacec27365609db51f3369224ec8a0eced5e2561695f"
         },
         {
           "order": 8,
-          "title": "选用AI之前，我会问这三件事。",
+          "title": "论文与代码",
           "url": "/versions/a2-3/images/08.png",
-          "sha256": "18c30e373cd7ca53b2eb72ac8593150763981c4da0e14dc6b098e137fc784730"
+          "sha256": "62f0f6f932714f7ecc2708f9062b435b8cd0ae28324321654a570e69ab931fbc"
         }
       ],
-      "fullText": "JEV便宜这么多，答题靠谱吗？\n\n这篇论文里，JEV每份合同的花费约为Flash-Lite的六分之一。价格挺有吸引力，但它到底答得怎么样？先看论文里的一道例题。\n\n合同里写着：复制保密资料前，必须先取得书面同意。那“只在公司内部用，就可以直接复制”对吗？不对，内部使用也得先拿到同意。这次测试考的，就是AI能不能根据原文答对这类问题。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n把这些放在一起，我会多问三件事：答对了多少？哪些题能一直答对？要花多少钱、等多久？8张图和最后一页的阅读提示，按这个顺序讲清楚。\n\n例题为论文Figure 1的中文转述。基础测试与重复测试分开统计；结果只对应所测任务、配置和计价方式。30道独立题不足以代表普遍表现。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解",
-      "body": "这篇论文里，JEV每份合同的花费约为Flash-Lite的六分之一。价格挺有吸引力，但它到底答得怎么样？先看论文里的一道例题。\n\n合同里写着：复制保密资料前，必须先取得书面同意。那“只在公司内部用，就可以直接复制”对吗？不对，内部使用也得先拿到同意。这次测试考的，就是AI能不能根据原文答对这类问题。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n把这些放在一起，我会多问三件事：答对了多少？哪些题能一直答对？要花多少钱、等多久？8张图和最后一页的阅读提示，按这个顺序讲清楚。\n\n例题为论文Figure 1的中文转述。基础测试与重复测试分开统计；结果只对应所测任务、配置和计价方式。30道独立题不足以代表普遍表现。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解"
+      "fullText": "Jev便宜这么多，答题靠谱吗？\n\n一份合同同时回答17项判断，Jev的调用费用约为Gemini-3.5-Flash的六分之一。较低的价格之外，这篇论文也记录了它具体答错了什么。\n\n基础准确率分别为77.38%和82.54%，Jev低5.16个百分点。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n在93道题中，Jev对“合同未提及”类问题的平均正确率为59.52%，“与合同矛盾”类为92.31%。两类分别有42道题和13道题。\n\n对已有回答的三次投票，也没有测出明确的准确率提升。低费用带来了怎样的取舍，在具体错题中表现得更清楚。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #推理成本 #AI应用 #论文解读\n",
+      "body": "一份合同同时回答17项判断，Jev的调用费用约为Gemini-3.5-Flash的六分之一。较低的价格之外，这篇论文也记录了它具体答错了什么。\n\n基础准确率分别为77.38%和82.54%，Jev低5.16个百分点。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n在93道题中，Jev对“合同未提及”类问题的平均正确率为59.52%，“与合同矛盾”类为92.31%。两类分别有42道题和13道题。\n\n对已有回答的三次投票，也没有测出明确的准确率提升。低费用带来了怎样的取舍，在具体错题中表现得更清楚。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型评测 #推理成本 #AI应用 #论文解读\n"
     },
     {
       "version": "A2-4",
@@ -394,115 +1036,125 @@
           "order": 1,
           "title": "AI做题，又快又准……吗？",
           "url": "/versions/a2-4/images/01.png",
-          "sha256": "a8af4b7b904d69e977f5cff9b589f5b479caac5e126cea15c5f9f7e854ebcbdf"
+          "sha256": "53be809cecce136674cce9250fb65601dc2d530611751e32a9539780f9a3733d"
         },
         {
           "order": 2,
-          "title": "先试一题：这些资料能直接复制吗？",
+          "title": "都问12次，换种问法有什么影响？",
           "url": "/versions/a2-4/images/02.png",
-          "sha256": "2664c1f89c5747c7eb43cd0c8ff19945c2ddf8ceb20fcd58d815299e506e7eff"
+          "sha256": "74d84844b7e513b95b726d9ff54e343edd10e862cce4b965d38d107cd0b89fee"
         },
         {
           "order": 3,
-          "title": "JEV和9个模型，回答了同一批问题。",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a2-4/images/03.png",
-          "sha256": "cf53a129e4ee181b445f92d82e89afbeb8ff38ce16fe045070bcd28713b0a11b"
+          "sha256": "d5522b9441538b3265807452f3876177bad762496b055285f0b2004c17363813"
         },
         {
           "order": 4,
-          "title": "都在79%左右，差别在哪儿？",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a2-4/images/04.png",
-          "sha256": "9008e679c4ed17df6a425d0de1fab5b93463d635da8ab4f1b3834303a8dc995d"
+          "sha256": "19a75f8adfdcd2f0603cf344edf214ac1958cf87f63c1bdfb45866977c44ac03"
         },
         {
           "order": 5,
-          "title": "AI也可能“稳定地答错”。",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a2-4/images/05.png",
-          "sha256": "5a5f976708c72a22bbc9354da789fc5381056685fec30a51d7f647371609a50d"
+          "sha256": "fc24f859fca5f414bc3f334bb4b78ab552659214eeda96300c49c64724857775"
         },
         {
           "order": 6,
-          "title": "附加题不用做，原题答案怎么变了？",
+          "title": "一次答17题，Jev的响应时间最短",
           "url": "/versions/a2-4/images/06.png",
-          "sha256": "e75744ac3fcd1fb077680f80d04327613af93a8a0fa58db55dfbf325b2f65ace"
+          "sha256": "f8903b7549908f619bdda0a9c09e2d05cc63f18b2fa95a8da06746582914987e"
         },
         {
           "order": 7,
-          "title": "便宜是真的，答题水平也得看。",
+          "title": "Jev 调用费用最低，准确率为77.38%",
           "url": "/versions/a2-4/images/07.png",
-          "sha256": "aac82c7ffbaf2fb9d1ffce0bfdff42084390f06f25032c351ca43114cc67b2d9"
+          "sha256": "ee6bd7060674fd998ef06423a47820aecb4063a8bdae89c0192376300f283b43"
         },
         {
           "order": 8,
-          "title": "选用AI之前，我会问这三件事。",
+          "title": "论文与代码",
           "url": "/versions/a2-4/images/08.png",
-          "sha256": "86449e7717dd90ca4f185884b45bad708d4faeded45ec2d43c91bb01cd31e352"
+          "sha256": "89ccba83379ed46f82a0fcee84a6e04b02885a7e37ff752a1460764271fb078d"
         }
       ],
-      "fullText": "AI做题，又快又准……吗？\n\n先别看模型排行榜，试试这道题。\n\n合同里写着：复制保密资料前，必须先取得书面同意。那“只在公司内部用，就可以直接复制”对吗？不对，内部使用也得先拿到同意。这次测试考的，就是AI能不能根据原文答对这类问题。\n\n人看起来不难，那交给AI呢？这篇论文把JEV和另外9个语言模型放到一起比较。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n“稳定地答错”这件事挺值得琢磨：问多少次都一样，未必是好消息，还得看它有没有答对。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n8张图里，我把这些结果串在一起。最后一张留了Table 1和Table 2的阅读提示。例题为论文图1中文转述；结果限于所测任务和配置，重复测试只有30道独立题。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解",
-      "body": "先别看模型排行榜，试试这道题。\n\n合同里写着：复制保密资料前，必须先取得书面同意。那“只在公司内部用，就可以直接复制”对吗？不对，内部使用也得先拿到同意。这次测试考的，就是AI能不能根据原文答对这类问题。\n\n人看起来不难，那交给AI呢？这篇论文把JEV和另外9个语言模型放到一起比较。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n“稳定地答错”这件事挺值得琢磨：问多少次都一样，未必是好消息，还得看它有没有答对。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n8张图里，我把这些结果串在一起。最后一张留了Table 1和Table 2的阅读提示。例题为论文图1中文转述；结果限于所测任务和配置，重复测试只有30道独立题。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解"
+      "fullText": "AI做题，又快又准……吗？\n\n一次回答17项合同判断，Jev在被测模型中响应最快、调用费用最低。但把同一道题反复问12次，部分错误也会一直保留。这篇评测把这些结果放在了一起。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n对已有回答的三次投票没有测出明确收益。研究展示了调用效率与答题错误同时存在的情况，评测范围是合同内容判断，并非完整审批流程。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型 #AI评测 #AI可靠性 #论文解读 #人工智能\n",
+      "body": "一次回答17项合同判断，Jev在被测模型中响应最快、调用费用最低。但把同一道题反复问12次，部分错误也会一直保留。这篇评测把这些结果放在了一起。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n响应速度也随请求内容变化：一次要求17项判断时，Jev为1.24秒，Gemini为1.60秒；同样展示17项问题、但只要求一个答案时，Gemini为0.99秒，Jev为1.15秒。以上均为客户端响应中位数。\n\n对已有回答的三次投票没有测出明确收益。研究展示了调用效率与答题错误同时存在的情况，评测范围是合同内容判断，并非完整审批流程。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #大模型 #AI评测 #AI可靠性 #论文解读 #人工智能\n"
     },
     {
       "version": "A3-2",
       "category": "论文解读",
-      "title": "JEV对比9个大模型，结果如何？",
+      "title": "Jev对比9个大模型，结果如何？",
       "preview": "/#post/A3-2",
       "caption": "/versions/a3-2/caption.txt",
       "download": "/downloads/a3-2.zip",
       "pages": [
         {
           "order": 1,
-          "title": "JEV对比9个大模型，结果如何？",
+          "title": "Jev对比9个大模型，结果如何？",
           "url": "/versions/a3-2/images/01.png",
-          "sha256": "eed15fbeab32574a52ce4f8697f2e867f25b24556681712e46223de3b8aa6525"
+          "sha256": "65ff288a8a1d5b93ef4de2131456a50201231a142ad724012a4d8533775745cb"
         },
         {
           "order": 2,
-          "title": "这些资料能直接复制吗？AI得看懂原文。",
+          "title": "同一份合同，多放几道题会怎样？",
           "url": "/versions/a3-2/images/02.png",
-          "sha256": "9761ce0464f36cc76f938e2ffd041f0e3725e967101e0386a7dfff64926c171c"
+          "sha256": "57e9d7b4a66f9437348f0f50a65011bf66896edfb55ba0634970c5a99761abb8"
         },
         {
           "order": 3,
-          "title": "同一道题，研究者做了12次测试",
+          "title": "都问12次，换种问法有什么影响？",
           "url": "/versions/a3-2/images/03.png",
-          "sha256": "2098d3e22dc1ba5e690c6a576ad9d413bfa0c09e3fe1fc45101ad1f137139568"
+          "sha256": "bac536d3c5b7521f373c772d0ca0e9750668caa1b542add41953e15eae04ceb2"
         },
         {
           "order": 4,
-          "title": "平均分接近，一直答对的题却不同",
+          "title": "改对的题和改错的题，可能被总分抵消",
           "url": "/versions/a3-2/images/04.png",
-          "sha256": "6a376cba45cce20d0f8956523075143ce5f39b800de6fc245f38eb676eecac2c"
+          "sha256": "56546b695edf722b262e2862758b5bf5aeac6748b0920339bad623ea559fa43b"
         },
         {
           "order": 5,
-          "title": "JEV有5道题，12次都答错",
+          "title": "平均分都约79%，12次全对的题数不同",
           "url": "/versions/a3-2/images/05.png",
-          "sha256": "71e02e75a1ea65b5ac73f52c01e7b244f8981c399dccf93da2b1a2db5c558143"
+          "sha256": "fb42fb4eea136333b26f048e823f3b17ea0734d6d7ac461c854aa3d6a896d6ab"
         },
         {
           "order": 6,
-          "title": "总分没变，9组答案却变了",
+          "title": "93道题里，Jev有17道反复答错",
           "url": "/versions/a3-2/images/06.png",
-          "sha256": "e5e3ede09298c80f0851e99b1607aee8858c687239ade294be482dd11218bc2b"
+          "sha256": "82df600ccf188db8cece361b6d9fd21dc4a518e1b553b72b37ae77ba83a353cd"
         },
         {
           "order": 7,
-          "title": "JEV花得少，Flash-Lite答对得更多",
+          "title": "合同没提到的事，Jev更容易答错",
           "url": "/versions/a3-2/images/07.png",
-          "sha256": "2647d648cc2ab296a8f37c3b353585ad1e2fca5d905ecad07ad0cb279c4e9235"
+          "sha256": "3f0deb8768a63dcba006a34bed46a410746a4a95264b92f92b42d26602f354a3"
         },
         {
           "order": 8,
-          "title": "读完这篇，我会多看一眼错题",
+          "title": "问三次再投票，没有明显提高准确率",
           "url": "/versions/a3-2/images/08.png",
-          "sha256": "287b80447050a9bc0f416db590055a617692d17f3255dacc230974186879aa8e"
+          "sha256": "44382b1fb90575cf1b5786125d8658a695ee0612d0e8cd6b952f73560b568165"
+        },
+        {
+          "order": 9,
+          "title": "Jev 调用费用最低，准确率为77.38%",
+          "url": "/versions/a3-2/images/09.png",
+          "sha256": "c0c7a44210dd076ac64036c956da1185b65119d67ee5fe6ccc3c90b3a921719b"
+        },
+        {
+          "order": 10,
+          "title": "论文与代码",
+          "url": "/versions/a3-2/images/10.png",
+          "sha256": "49a41fc40e217bb6480e97f17d7b3144371fa74edba2c2c68e06be5933fe86ed"
         }
       ],
-      "fullText": "JEV对比9个大模型，结果如何？\n\n把合同交给AI，再问它里面是怎么规定的。第一次答对了，换一种提问安排，它还能答对吗？这篇论文把同一道题反复测了12次。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n比起再看一个总分，我更想看这些具体记录：哪些题一直对，哪些反复错，哪些换个安排就变了。图里直接引用论文的原图、原表，方便对照着读。\n\n重复测试只有30道独立题，还不能说明哪个模型在所有场景里更稳。这里测的是根据原文回答问题，也没有验证AI能否找全合同里的法律风险。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解",
-      "body": "把合同交给AI，再问它里面是怎么规定的。第一次答对了，换一种提问安排，它还能答对吗？这篇论文把同一道题反复测了12次。\n\n研究者让JEV和9个语言模型回答123份合同里的2091道问题，再从中挑30份合同，各固定一道题，换四种提问安排，每种问3次。原文、问题和正确答案不变，一道题共得到12个回答。\n\n在30道题的重复测试中，JEV和Qwen3.5-9B的平均正确率都约79%。但12次全部答对的题，分别有23道和18道。JEV也有5道题，12次都给了同一个错答案。\n\n还有一组对照：让Qwen3.5-4B多看16道题，但仍只回答原题。90组配对里，有9组答案变了：4组改对、4组改错、1组换了个错答案。答对的总数刚好没变。相同请求重复提交也可能改变答案，不能把这些变化全算在额外题目上。\n\n基础测试里，JEV每份合同花费0.000228美元，响应时间中位数为1.24秒。Flash-Lite约花6倍的钱，准确率为82.54%，比JEV的77.38%高5.16个百分点。便宜和快都看得到，准确率也要一起看。\n\n比起再看一个总分，我更想看这些具体记录：哪些题一直对，哪些反复错，哪些换个安排就变了。图里直接引用论文的原图、原表，方便对照着读。\n\n重复测试只有30道独立题，还不能说明哪个模型在所有场景里更稳。这里测的是根据原文回答问题，也没有验证AI能否找全合同里的法律风险。\n\n论文：Same Scores, Different Decisions，Fan Zhang等，arXiv:2609.27678v1，预印本。\nhttps://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#论文解读 #JEV #AI评测 #大模型 #阅读理解"
+      "fullText": "Jev对比9个大模型，结果如何？\n\nJev对比9个语言模型，测试了123份合同、2,091项判断。除了准确率和调用费用，论文还记录了答案怎样变化，以及哪些错误会被反复保留。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文解读 #大模型评测 #AI可靠性 #自然语言处理 #LLM\n",
+      "body": "Jev对比9个语言模型，测试了123份合同、2,091项判断。除了准确率和调用费用，论文还记录了答案怎样变化，以及哪些错误会被反复保留。\n\n基础测试中，Jev准确率为77.38%，每份合同调用费用0.000228美元；Gemini-3.5-Flash为82.54%、0.001353美元。Jev费用较低，准确率低5.16个百分点。\n\n首轮30道题各回答12次。Jev与Qwen-3.5-9B的平均正确率分别为79.44%和79.17%，12次全对的题数却分别为23道和18道。Jev另有5道题，12次都给出同一个错答案。\n\n研究还对4个模型测试其余93份合同，每份一道题、各问12次。Jev有67道题全对，17道题始终给出同一个错答案。其中13道持续错题的正确答案是“未提及”。\n\n研究者用已记录的回答计算三次多数投票。四个模型都没有测出明确的准确率提升；Jev在93题中的单次均值为75.27%，投票后为74.25%，差异区间包含零。这个结果仅对应论文的样本和配置。\n\n评测针对的是根据合同原文作判断，没有覆盖完整合同审批流程，也没有测算人工复核费用。论文与代码均有公开入口。\n\n论文：https://arxiv.org/abs/2609.27678\n代码：https://github.com/ZF-Utokyo/Jev-Benchmark\n\n#Jev #论文解读 #大模型评测 #AI可靠性 #自然语言处理 #LLM\n"
     }
-  ],
-  "uiVersion": "V2",
-  "previousPreview": "/v1/"
+  ]
 }
