@@ -1,0 +1,37 @@
+{
+  "source": "Table 4",
+  "sourcePage": 7,
+  "targets": 93,
+  "repeat": 12,
+  "colors": {
+    "header": "#e0e0f4",
+    "second": "#c9daf3",
+    "best": "#b0b0e3"
+  },
+  "rows": [
+    {
+      "model": "Jev-1.13.0",
+      "all12": 67,
+      "same": 84,
+      "wrong": 17
+    },
+    {
+      "model": "Gemini-3.5-Flash",
+      "all12": 66,
+      "same": 77,
+      "wrong": 11
+    },
+    {
+      "model": "GPT-5.6-Terra",
+      "all12": 64,
+      "same": 72,
+      "wrong": 8
+    },
+    {
+      "model": "Claude-Sonnet-5",
+      "all12": 70,
+      "same": 76,
+      "wrong": 6
+    }
+  ]
+}

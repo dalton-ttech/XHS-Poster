@@ -66,6 +66,7 @@
     $('span', button).textContent = saved ? '已收藏' : '收藏';
   }
   function save(version) {
+    if (state.groups.find(g => g.version === version)?.published) { toast('已发布 不可选中'); return; }
     const removing = state.saved.has(version);
     if (removing) state.saved.delete(version); else state.saved.add(version);
     let persisted = true;
@@ -98,13 +99,23 @@
     resizeObserver?.disconnect(); feed.replaceChildren();
     groups.forEach(g => {
       const card = el('article', 'note-card'); card.dataset.version = g.version; card.dataset.category = g.kind;
-      const content = el('div', 'note-content'), cover = el('a', 'cover-link');
-      cover.href = `#post/${g.version}`; cover.setAttribute('aria-label', `查看 ${g.version} ${g.title}`);
+      card.classList.toggle('is-published', !!g.published);
+      const content = el('div', 'note-content'), cover = el(g.published ? 'div' : 'a', 'cover-link');
+      if (g.published) {
+        card.tabIndex = 0; card.setAttribute('aria-label', `${g.version} ${g.title}，已发布 不可选中`);
+        card.setAttribute('aria-disabled', 'true');
+      } else {
+        cover.href = `#post/${g.version}`; cover.setAttribute('aria-label', `查看 ${g.version} ${g.title}`);
+      }
       const img = el('img', 'note-cover'); img.src = g.pages[0].url; img.alt = g.pages[0].title; img.width = 1500; img.height = 2000; img.loading = 'lazy'; img.decoding = 'async';
       cover.append(img, el('span', 'cover-count', `${g.pages.length} 图`));
-      const heading = el('h2', 'note-title'), link = el('a', '', g.title); link.href = cover.href; heading.append(link);
+      if (g.published) cover.append(el('span', 'published-label', '已发布 不可选中'));
+      const heading = el('h2', 'note-title'), link = el(g.published ? 'span' : 'a', '', g.title);
+      if (!g.published) link.href = cover.href;
+      heading.append(link);
       const meta = el('div', 'note-meta'), button = el('button', 'save-note');
       button.type = 'button'; button.dataset.save = g.version; button.innerHTML = icon('heart'); button.append(el('span', 'save-label', '收藏'));
+      button.disabled = !!g.published;
       meta.append(el('span', 'mini-avatar', 'J'), el('span', 'version-label', g.version), button);
       content.append(cover, heading, meta); card.append(content); feed.append(card);
     });
@@ -208,6 +219,7 @@
     });
   }
   function openPost(g) {
+    if (g.published) { toast('已发布 不可选中'); return; }
     if (post.open && state.current?.version === g.version) return;
     state.current = g; state.image = 0;
     $('#postVersion').textContent = g.version; $('#postCategory').textContent = g.category;
@@ -230,8 +242,8 @@
     const hash = location.hash, match = /^#post\/(A[\d-]+)$/i.exec(hash);
     if (match) {
       const group = state.groups.find(g => g.version === match[1].toUpperCase());
-      if (group) { openPost(group); return; }
-      toast('没有找到这个版本，已返回列表'); history.replaceState(null, '', '/#feed/promo');
+      if (group && !group.published) { openPost(group); return; }
+      toast(group?.published ? '已发布 不可选中' : '没有找到这个版本，已返回列表'); history.replaceState(null, '', '/#feed/promo');
     }
     const wasOpen = post.open;
     if (wasOpen) { closeDialog('postMenuDialog'); closeDialog('postDialog'); }
@@ -264,7 +276,7 @@
       toast(message);
     } catch { toast('复制未成功，请在“发布文案”中长按选取'); }
   }
-  function copyKind(g, kind) { return copy(kind === 'title' ? g.title : kind === 'body' ? g.body : g.fullText, kind === 'title' ? '标题已复制' : kind === 'body' ? '正文已复制' : '完整文案已复制'); }
+  function copyKind(g, kind) { if (g.published) { toast('已发布 不可选中'); return; } return copy(kind === 'title' ? g.title : kind === 'body' ? g.body : g.fullText, kind === 'title' ? '标题已复制' : kind === 'body' ? '正文已复制' : '完整文案已复制'); }
   async function share() {
     if (!state.current) return;
     const data = { title: state.current.title, url: `${location.origin}/#post/${state.current.version}` };
@@ -272,7 +284,7 @@
     await copy(data.url, '分享链接已复制');
   }
   function captions() {
-    $('#captionSelect').value = state.current?.version || state.groups.find(g => g.kind === state.category).version;
+    $('#captionSelect').value = (state.current && !state.current.published ? state.current : state.groups.find(g => g.kind === state.category && !g.published)).version;
     $('#captionText').value = state.groups.find(g => g.version === $('#captionSelect').value).fullText;
     showDialog('captionDialog');
   }
@@ -318,13 +330,16 @@
     dialog.addEventListener('click', event => { if (event.target !== dialog) return; const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) { if (dialog === post) back(); else closeDialog(dialog.id); } });
   });
   window.addEventListener('popstate', route); window.addEventListener('hashchange', route);
-  window.addEventListener('storage', event => { if (event.key === storageKey) { try { state.saved = new Set(JSON.parse(event.newValue || '[]')); syncSaved(); } catch { /* Ignore invalid storage. */ } } });
+  function removePublishedSaves() { state.groups.filter(g => g.published).forEach(g => state.saved.delete(g.version)); }
+  window.addEventListener('storage', event => { if (event.key === storageKey) { try { state.saved = new Set(JSON.parse(event.newValue || '[]')); removePublishedSaves(); syncSaved(); } catch { /* Ignore invalid storage. */ } } });
   icons();
   async function init() {
     try {
       const response = await fetch('/site-data.json'); if (!response.ok) throw new Error('data');
       const data = await response.json(); state.groups = data.groups.map(g => ({ ...g, kind: g.category === '论文推广' ? 'promo' : 'read' }));
-      state.groups.forEach(g => { const option = el('option', '', `${g.version} · ${g.title}`); option.value = g.version; $('#captionSelect').append(option); });
+      removePublishedSaves();
+      try { localStorage.setItem(storageKey, JSON.stringify([...state.saved])); } catch { /* Storage may be unavailable. */ }
+      state.groups.forEach(g => { const option = el('option', '', `${g.version} · ${g.title}${g.published ? '（已发布 不可选中）' : ''}`); option.value = g.version; option.disabled = !!g.published; $('#captionSelect').append(option); });
       const legacy = /^\/versions\/([^/]+)\/(?:index\.html)?$/i.exec(location.pathname);
       if (legacy) {
         const version = legacy[1] === 'a4-1' ? `A4-1-${Number(location.hash.replace('#v', '')) || 1}` : legacy[1].toUpperCase();
