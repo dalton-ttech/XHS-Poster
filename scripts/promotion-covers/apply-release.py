@@ -7,7 +7,7 @@ REPO = Path(__file__).resolve().parents[2]
 PUBLIC = REPO/'public'
 CHECK = REPO/'checks/20261021'
 COVERS = CHECK/'covers'
-PUBLISHED = {'A4-4','A4-5','A4-8'}
+PUBLISHED = {'A4-4','A4-5','A4-8','A4-9'}
 data = json.loads((PUBLIC/'site-data.json').read_text('utf-8'))
 (CHECK/'baseline').mkdir(parents=True,exist_ok=True)
 pdf_baseline = CHECK/'baseline/jev-all-versions.pdf'
@@ -64,7 +64,8 @@ doc.close()
 (CHECK/'pdf-cover-pages.json').write_text(json.dumps(pdf_pages),encoding='utf-8')
 
 comparison = (PUBLIC/'covers.html').read_text('utf-8')
-comparison = comparison.replace('A4-4 鼠尾草绿 · A4-6 陶土粉 · A4-8 灰紫。点击首图查看完整图文。','未发布首图采用蓝、绿、陶土粉底色。A4-4、A4-5、A4-8 已发布，不可选中。')
+comparison = comparison.replace('A4-4 鼠尾草绿 · A4-6 陶土粉 · A4-8 灰紫。点击首图查看完整图文。','未发布首图采用蓝、绿、陶土粉底色。A4-4、A4-5、A4-8、A4-9 已发布，不可选中。')
+comparison = comparison.replace('A4-4、A4-5、A4-8 已发布','A4-4、A4-5、A4-8、A4-9 已发布')
 def status(match):
     figure = match.group(0)
     v = re.search(r'#post/(A4-\d+)',figure)
